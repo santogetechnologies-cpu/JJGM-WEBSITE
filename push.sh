@@ -9,8 +9,8 @@ echo ""
 echo "Staging files..."
 git add .
 echo ""
-echo "Committing..."
-git commit -m "Initial commit"
+echo "Committing image fixes and clean filenames..."
+git commit -m "Fix image filenames and Vercel compatibility" || echo "Nothing new to commit"
 echo ""
 echo "Pushing to GitHub..."
 git push -u origin main --force
