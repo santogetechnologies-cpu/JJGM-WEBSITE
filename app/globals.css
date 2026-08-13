@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  background-color: #0d0c0a;
+  color: white;
+  margin: 0;
+  padding: 0;
+  /* clip avoids horizontal scroll without breaking position:sticky (hidden does) */
+  overflow-x: clip;
+}
+
+body {
+  overflow-y: visible;
+}
