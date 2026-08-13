@@ -9,8 +9,8 @@ echo ""
 echo "Staging files..."
 git add .
 echo ""
-echo "Committing image fixes and clean filenames..."
-git commit -m "Fix image filenames and Vercel compatibility" || echo "Nothing new to commit"
+echo "Committing layout & overlay updates..."
+git commit -m "Remove hero text overlay, fit animation edge-to-edge on wide screens, show Partner With Us card at end of animation" || echo "Nothing new to commit"
 echo ""
 echo "Pushing to GitHub..."
 git push -u origin main --force

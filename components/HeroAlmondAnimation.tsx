@@ -29,7 +29,7 @@ export default function UnifiedHomepageExperience() {
     );
   };
 
-  // Draw 3D almond frame centered without cutoffs
+  // Draw 3D almond frame fitting edge-to-edge across side screens without gaps
   const drawFrame = useCallback((frameIndex: number) => {
     const canvas = canvasRef.current;
     const container = containerRef.current;
@@ -82,24 +82,22 @@ export default function UnifiedHomepageExperience() {
 
     ctx.clearRect(0, 0, width, height);
 
-    // Object-fit contain logic scaled to 85% so almond is NEVER cut off at top or bottom
+    // Cover / Edge-to-Edge logic to fit side screens without gaps
     const imgRatio = img.naturalWidth / img.naturalHeight;
     const canvasRatio = width / height;
 
     let drawWidth: number, drawHeight: number, offsetX: number, offsetY: number;
 
-    const maxScale = 0.88; // 88% of screen bounds for crisp centered framing
-
     if (canvasRatio > imgRatio) {
-      drawHeight = height * maxScale;
-      drawWidth = drawHeight * imgRatio;
-      offsetX = (width - drawWidth) / 2;
+      drawWidth = width;
+      drawHeight = width / imgRatio;
+      offsetX = 0;
       offsetY = (height - drawHeight) / 2;
     } else {
-      drawWidth = width * maxScale;
-      drawHeight = drawWidth / imgRatio;
+      drawHeight = height;
+      drawWidth = height * imgRatio;
       offsetX = (width - drawWidth) / 2;
-      offsetY = (height - drawHeight) / 2;
+      offsetY = 0;
     }
 
     ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
@@ -217,107 +215,46 @@ export default function UnifiedHomepageExperience() {
     };
   }, [drawFrame]);
 
-  // Dynamic Opacities for content stages over the 3D almond sequence
-  // Stage 1: Hero Intro (Frames 1-60)
-  const stage1Opacity = currentFrame <= 40 ? 1 : currentFrame <= 60 ? (60 - currentFrame) / 20 : 0;
-
-  // Stage 2: Features (Frames 60-120)
-  const stage2Opacity =
-    currentFrame < 50 ? 0 :
-    currentFrame <= 70 ? (currentFrame - 50) / 20 :
-    currentFrame <= 100 ? 1 :
-    currentFrame <= 120 ? (120 - currentFrame) / 20 : 0;
-
-  // Stage 3: Wholesale Inquiry (Frames 120-192)
-  const stage3Opacity = currentFrame < 130 ? 0 : currentFrame <= 150 ? (currentFrame - 130) / 20 : 1;
+  // Show "Partner With Us" card ONLY after all animation scenes are finished (Frames 175-192)
+  const finalCardOpacity = currentFrame < 170 ? 0 : Math.min(1, (currentFrame - 170) / 15);
 
   return (
-    <div ref={wrapperRef} className="relative h-[550vh] w-full bg-[#0d0c0a]">
+    <div ref={wrapperRef} className="relative h-[550vh] w-full bg-black">
       {/* Pinned Sticky Canvas Background */}
       <div
         ref={containerRef}
-        className="sticky top-0 h-screen w-full overflow-hidden"
+        className="sticky top-0 h-screen w-full overflow-hidden bg-black"
       >
         <canvas
           ref={canvasRef}
-          className="absolute inset-0 w-full h-full object-contain"
+          className="absolute inset-0 w-full h-full object-cover"
         />
 
-        {/* Light vignette overlay to let animation pop */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/20 pointer-events-none" />
+        {/* Subtle dark gradient overlay to make text card pop */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
 
-        {/* Interactive Content Layers Over 3D Animation */}
-        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center p-4 md:p-8 pt-20">
+        {/* Interactive Content Layer Over 3D Animation */}
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center p-4 md:p-8 pt-20 pointer-events-none">
 
-          {/* STAGE 1: Hero Header */}
+          {/* Partner With Us Card - Only appears AFTER all animation scenes finish */}
           <div
-            className="absolute inset-0 flex flex-col items-center justify-center text-center transition-all duration-300 ease-out px-4 pt-16"
+            className="flex flex-col items-center justify-center text-center transition-all duration-500 ease-out px-4"
             style={{
-              opacity: stage1Opacity,
-              transform: `translateY(${(1 - stage1Opacity) * -20}px)`,
-              pointerEvents: stage1Opacity > 0.2 ? "auto" : "none",
+              opacity: finalCardOpacity,
+              transform: `translateY(${(1 - finalCardOpacity) * 30}px) scale(${0.95 + finalCardOpacity * 0.05})`,
+              pointerEvents: finalCardOpacity > 0.3 ? "auto" : "none",
             }}
           >
-            <h1 className="text-6xl sm:text-8xl md:text-9xl font-black text-white tracking-tighter uppercase drop-shadow-2xl">
-              JJGM & CO
-            </h1>
-            <p className="mt-4 text-xl sm:text-3xl md:text-4xl font-light text-amber-200 tracking-widest uppercase drop-shadow-lg">
-              Premium Wholesale Nuts & Fine Foods
-            </p>
-
-            <div className="absolute bottom-12 flex flex-col items-center gap-2 text-amber-400 animate-bounce">
-              <span className="text-xs uppercase tracking-widest font-bold">Scroll to explore</span>
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-              </svg>
-            </div>
-          </div>
-
-          {/* STAGE 2: Features */}
-          <div
-            className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-out px-4 pt-16"
-            style={{
-              opacity: stage2Opacity,
-              transform: `scale(${0.95 + stage2Opacity * 0.05})`,
-              pointerEvents: stage2Opacity > 0.2 ? "auto" : "none",
-            }}
-          >
-            <div className="flex flex-col md:flex-row w-full max-w-6xl justify-between items-center gap-10 md:px-12">
-              <div className="max-w-sm bg-black/20 p-8 rounded-3xl backdrop-blur-md space-y-3 text-center border border-white/5">
-                <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-wider">Premium Quality</h3>
-                <p className="text-base text-gray-200 font-light">
-                  The finest selection of artisanal nuts and savory snacks, roasted to perfection.
-                </p>
-              </div>
-
-              <div className="max-w-sm bg-black/20 p-8 rounded-3xl backdrop-blur-md space-y-3 text-center border border-white/5 self-end md:self-auto">
-                <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-wider">Direct Wholesale</h3>
-                <p className="text-base text-gray-200 font-light">
-                  Supplying supermarkets and catering businesses across the UK with fast fulfillment.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* STAGE 3: Wholesale Inquiry */}
-          <div
-            className="absolute inset-0 flex flex-col items-center justify-center text-center transition-all duration-300 ease-out px-4 pt-16"
-            style={{
-              opacity: stage3Opacity,
-              transform: `translateY(${(1 - stage3Opacity) * 30}px)`,
-              pointerEvents: stage3Opacity > 0.2 ? "auto" : "none",
-            }}
-          >
-            <div className="max-w-3xl bg-black/40 p-10 rounded-[2.5rem] backdrop-blur-xl space-y-8 border border-white/10">
-              <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight uppercase">
+            <div className="max-w-3xl bg-black/60 p-8 sm:p-12 rounded-[2.5rem] backdrop-blur-2xl space-y-6 sm:space-y-8 border border-white/10 shadow-2xl">
+              <h2 className="text-4xl sm:text-6xl font-black text-white tracking-tight uppercase">
                 Partner With Us
               </h2>
 
-              <p className="text-lg text-gray-200 max-w-xl mx-auto font-light">
+              <p className="text-base sm:text-xl text-gray-200 max-w-xl mx-auto font-light leading-relaxed">
                 Direct UK Trade Distribution. Ready to elevate your product offerings?
               </p>
 
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-4">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 pt-2">
                 <Link
                   href="/products"
                   className="w-full sm:w-auto px-10 py-4 bg-amber-500 text-black font-extrabold text-sm uppercase tracking-widest rounded-full hover:bg-amber-400 transition-all duration-300 shadow-xl hover:scale-105"
@@ -327,7 +264,7 @@ export default function UnifiedHomepageExperience() {
 
                 <Link
                   href="/inquiry"
-                  className="w-full sm:w-auto px-10 py-4 bg-transparent text-white font-bold text-sm uppercase tracking-widest rounded-full hover:bg-white/10 transition-all border-2 border-white/20"
+                  className="w-full sm:w-auto px-10 py-4 bg-transparent text-white font-bold text-sm uppercase tracking-widest rounded-full hover:bg-white/10 transition-all border-2 border-white/20 hover:border-white/40"
                 >
                   Request Quote
                 </Link>
