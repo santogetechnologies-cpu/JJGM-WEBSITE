@@ -30,6 +30,7 @@ export default function UnifiedHomepageExperience() {
   };
 
   // Draw 3D almond frame fitting edge-to-edge across side screens without gaps
+  // Positioned 2cm (~75px) below the fixed header section (80px header height)
   const drawFrame = useCallback((frameIndex: number) => {
     const canvas = canvasRef.current;
     const container = containerRef.current;
@@ -82,22 +83,30 @@ export default function UnifiedHomepageExperience() {
 
     ctx.clearRect(0, 0, width, height);
 
-    // Cover / Edge-to-Edge logic to fit side screens without gaps
+    // Position hero animation 2cm (~75px) below header section (80px header height)
+    const HEADER_HEIGHT = 80;
+    const TWO_CM_GAP = 75; // 2 cm ≈ 75px
+    const TOP_OFFSET = HEADER_HEIGHT + TWO_CM_GAP; // 155px top offset
+
+    const availableHeight = Math.max(100, height - TOP_OFFSET);
     const imgRatio = img.naturalWidth / img.naturalHeight;
-    const canvasRatio = width / height;
+    const availableRatio = width / availableHeight;
 
     let drawWidth: number, drawHeight: number, offsetX: number, offsetY: number;
 
-    if (canvasRatio > imgRatio) {
+    if (availableRatio > imgRatio) {
       drawWidth = width;
       drawHeight = width / imgRatio;
       offsetX = 0;
-      offsetY = (height - drawHeight) / 2;
+      offsetY = TOP_OFFSET + (availableHeight - drawHeight) / 2;
+      if (offsetY < TOP_OFFSET) {
+        offsetY = TOP_OFFSET;
+      }
     } else {
-      drawHeight = height;
-      drawWidth = height * imgRatio;
+      drawHeight = availableHeight;
+      drawWidth = availableHeight * imgRatio;
       offsetX = (width - drawWidth) / 2;
-      offsetY = 0;
+      offsetY = TOP_OFFSET;
     }
 
     ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
@@ -215,72 +224,138 @@ export default function UnifiedHomepageExperience() {
     };
   }, [drawFrame]);
 
-  // Show "Partner With Us" card ONLY after all animation scenes are finished (Frames 175-192)
-  const finalCardOpacity = currentFrame < 170 ? 0 : Math.min(1, (currentFrame - 170) / 15);
+  // Show "Partner With Us" card smoothly when animation reaches final scenes (Frames 165-192)
+  const finalCardOpacity = currentFrame < 165 ? 0 : Math.min(1, (currentFrame - 165) / 20);
 
   return (
-    <div ref={wrapperRef} className="relative h-[550vh] w-full bg-black">
-      {/* Pinned Sticky Canvas Background */}
-      <div
-        ref={containerRef}
-        className="sticky top-0 h-screen w-full overflow-hidden bg-black"
-      >
-        <canvas
-          ref={canvasRef}
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+    <div className="w-full bg-black">
+      <div ref={wrapperRef} className="relative h-[550vh] w-full bg-black">
+        {/* Pinned Sticky Canvas Background */}
+        <div
+          ref={containerRef}
+          className="sticky top-0 h-screen w-full overflow-hidden bg-black"
+        >
+          <canvas
+            ref={canvasRef}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
 
-        {/* Subtle dark gradient overlay to make text card pop */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
+          {/* Subtle dark gradient overlay to make text card pop */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70 pointer-events-none" />
 
-        {/* Interactive Content Layer Over 3D Animation */}
-        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center p-4 md:p-8 pt-20 pointer-events-none">
+          {/* Interactive Content Layer Over 3D Animation */}
+          <div className="absolute inset-0 z-10 flex flex-col items-center justify-end p-4 md:p-8 pb-12 sm:pb-16 md:pb-20 pointer-events-none">
 
-          {/* Partner With Us Card - Only appears AFTER all animation scenes finish */}
-          <div
-            className="flex flex-col items-center justify-center text-center transition-all duration-500 ease-out px-4"
-            style={{
-              opacity: finalCardOpacity,
-              transform: `translateY(${(1 - finalCardOpacity) * 30}px) scale(${0.95 + finalCardOpacity * 0.05})`,
-              pointerEvents: finalCardOpacity > 0.3 ? "auto" : "none",
-            }}
-          >
-            <div className="max-w-3xl bg-black/60 p-8 sm:p-12 rounded-[2.5rem] backdrop-blur-2xl space-y-6 sm:space-y-8 border border-white/10 shadow-2xl">
-              <h2 className="text-4xl sm:text-6xl font-black text-white tracking-tight uppercase">
-                Partner With Us
-              </h2>
+            {/* Partner With Us Card - Displays evenly below hero animation as animation ends */}
+            <div
+              className="flex flex-col items-center justify-center text-center transition-all duration-500 ease-out px-4 w-full max-w-4xl"
+              style={{
+                opacity: finalCardOpacity,
+                transform: `translateY(${(1 - finalCardOpacity) * 30}px) scale(${0.95 + finalCardOpacity * 0.05})`,
+                pointerEvents: finalCardOpacity > 0.3 ? "auto" : "none",
+              }}
+            >
+              <div className="w-full bg-black/80 p-6 sm:p-10 rounded-[2.5rem] backdrop-blur-2xl space-y-6 border border-amber-500/30 shadow-2xl">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-widest border border-amber-500/30">
+                  Direct UK Trade Distribution
+                </div>
+                <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight uppercase">
+                  Partner With Us
+                </h2>
 
-              <p className="text-base sm:text-xl text-gray-200 max-w-xl mx-auto font-light leading-relaxed">
-                Direct UK Trade Distribution. Ready to elevate your product offerings?
-              </p>
+                <p className="text-sm sm:text-lg text-gray-200 max-w-xl mx-auto font-light leading-relaxed">
+                  Direct UK Trade Distribution. Ready to elevate your product offerings?
+                </p>
 
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 pt-2">
-                <Link
-                  href="/products"
-                  className="w-full sm:w-auto px-10 py-4 bg-amber-500 text-black font-extrabold text-sm uppercase tracking-widest rounded-full hover:bg-amber-400 transition-all duration-300 shadow-xl hover:scale-105"
-                >
-                  View Catalog
-                </Link>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 pt-2">
+                  <Link
+                    href="/products"
+                    className="w-full sm:w-auto px-8 py-3.5 bg-amber-500 text-black font-extrabold text-xs sm:text-sm uppercase tracking-widest rounded-full hover:bg-amber-400 transition-all duration-300 shadow-xl hover:scale-105"
+                  >
+                    View Catalog
+                  </Link>
 
-                <Link
-                  href="/inquiry"
-                  className="w-full sm:w-auto px-10 py-4 bg-transparent text-white font-bold text-sm uppercase tracking-widest rounded-full hover:bg-white/10 transition-all border-2 border-white/20 hover:border-white/40"
-                >
-                  Request Quote
-                </Link>
+                  <Link
+                    href="/inquiry"
+                    className="w-full sm:w-auto px-8 py-3.5 bg-transparent text-white font-bold text-xs sm:text-sm uppercase tracking-widest rounded-full hover:bg-white/10 transition-all border-2 border-white/20 hover:border-white/40"
+                  >
+                    Request Quote
+                  </Link>
+                </div>
               </div>
+            </div>
+
+          </div>
+        </div>
+
+        <ProductModal
+          product={selectedProduct}
+          onClose={() => setSelectedProduct(null)}
+          onToggleQuote={toggleQuoteItem}
+          isInQuote={selectedProduct ? quoteItems.includes(selectedProduct.id) : false}
+        />
+      </div>
+
+      {/* Dedicated "Partner With Us" Section displayed below after animation ends */}
+      <section className="relative bg-gradient-to-b from-black via-[#14120e] to-[#0d0c0a] py-20 md:py-28 px-4 sm:px-6 lg:px-8 border-t border-amber-900/30">
+        <div className="max-w-5xl mx-auto text-center space-y-8">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-widest">
+            <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+            UK Trade & Wholesale Distribution
+          </div>
+
+          <h2 className="text-4xl sm:text-6xl font-black text-white tracking-tight uppercase">
+            Partner With Us
+          </h2>
+
+          <p className="text-lg sm:text-2xl text-gray-300 max-w-2xl mx-auto font-light leading-relaxed">
+            Direct UK Trade Distribution. Ready to elevate your product offerings?
+          </p>
+
+          {/* Trade Highlights Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 pb-4 max-w-4xl mx-auto text-left">
+            <div className="p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-amber-500/40 transition-all">
+              <div className="w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center text-amber-400 font-bold text-lg mb-4">
+                01
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Direct UK Distribution</h3>
+              <p className="text-sm text-gray-400">Competitive bulk wholesale pricing direct to retailers, supermarkets, and catering.</p>
+            </div>
+
+            <div className="p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-amber-500/40 transition-all">
+              <div className="w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center text-amber-400 font-bold text-lg mb-4">
+                02
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">100+ Premium Products</h3>
+              <p className="text-sm text-gray-400">Fresh almonds, roasted nuts, crisps, confectionery, wafers, and protein snacks.</p>
+            </div>
+
+            <div className="p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-amber-500/40 transition-all">
+              <div className="w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center text-amber-400 font-bold text-lg mb-4">
+                03
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Fast Nationwide Supply</h3>
+              <p className="text-sm text-gray-400">Reliable logistics based in Hounslow with dedicated trade customer service.</p>
             </div>
           </div>
 
-        </div>
-      </div>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 pt-4">
+            <Link
+              href="/products"
+              className="w-full sm:w-auto px-10 py-4 bg-amber-500 text-black font-extrabold text-sm uppercase tracking-widest rounded-full hover:bg-amber-400 transition-all duration-300 shadow-xl hover:scale-105"
+            >
+              View Catalog
+            </Link>
 
-      <ProductModal
-        product={selectedProduct}
-        onClose={() => setSelectedProduct(null)}
-        onToggleQuote={toggleQuoteItem}
-        isInQuote={selectedProduct ? quoteItems.includes(selectedProduct.id) : false}
-      />
+            <Link
+              href="/inquiry"
+              className="w-full sm:w-auto px-10 py-4 bg-transparent text-white font-bold text-sm uppercase tracking-widest rounded-full hover:bg-white/10 transition-all border-2 border-white/20 hover:border-white/40"
+            >
+              Request Quote
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
