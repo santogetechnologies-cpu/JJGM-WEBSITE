@@ -4,7 +4,7 @@ const path = require('path');
 const rootDir = __dirname;
 const publicDir = path.join(rootDir, 'public');
 const logoSource = 'C:\\Users\\Admin\\.gemini\\antigravity-ide\\brain\\f0e366ca-12fc-4fe3-ab1c-95239378ddac\\media__1786472037489.png';
-const almondSourceDir = path.join(rootDir, 'almond animation assets');
+const almondSourceDir = path.join(rootDir, 'almond animation');
 const productSourceDir = path.join(rootDir, 'product images');
 
 // Ensure target directories exist

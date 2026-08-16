@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} bg-[#0d0c0a] text-white min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-black`}>
+      <body className={`${inter.className} bg-white text-black min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-white`}>
         <Navbar />
         <div className="flex-grow">
           {children}

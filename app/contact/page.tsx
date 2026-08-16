@@ -20,17 +20,17 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="bg-[#0d0c0a] min-h-screen text-white pt-24 pb-24">
+    <main className="bg-white min-h-screen text-black pt-24 pb-24">
       {/* Page Header */}
-      <section className="relative py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#1a1713] via-[#12100d] to-[#0d0c0a] border-b border-white/10 text-center">
+      <section className="relative py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 via-white to-white border-b border-black/5 text-center">
         <div className="max-w-4xl mx-auto space-y-4">
-          <span className="px-4 py-1.5 rounded-full bg-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-widest border border-amber-500/30">
+          <span className="px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-700 text-xs font-bold uppercase tracking-widest border border-amber-500/20">
             Wholesale & Trade Inquiries
           </span>
-          <h1 className="text-4xl md:text-6xl font-black tracking-tight">
-            Contact <span className="text-amber-400">JJGM & CO</span>
+          <h1 className="text-4xl md:text-6xl font-black tracking-tight text-black">
+            Contact <span className="text-amber-600">JJGM & CO</span>
           </h1>
-          <p className="text-gray-300 text-base md:text-lg">
+          <p className="text-black/60 text-base md:text-lg">
             Have questions about bulk orders, trade pricing, or UK distribution? Contact founder {COMPANY_DETAILS.founderFormatted} directly.
           </p>
         </div>

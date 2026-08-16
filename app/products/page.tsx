@@ -42,17 +42,17 @@ export default function ProductsPage() {
   };
 
   return (
-    <main className="bg-[#0d0c0a] min-h-screen text-white pt-24 pb-24">
+    <main className="bg-white min-h-screen text-black pt-24 pb-24">
       {/* Catalog Header Banner */}
-      <section className="relative py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#181510] via-[#12100d] to-[#0d0c0a] border-b border-white/10">
+      <section className="relative py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 via-white to-white border-b border-black/5">
         <div className="max-w-7xl mx-auto text-center space-y-4">
-          <span className="px-4 py-1.5 rounded-full bg-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-widest border border-amber-500/30">
+          <span className="px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-700 text-xs font-bold uppercase tracking-widest border border-amber-500/20">
             JJGM & CO Complete Range
           </span>
-          <h1 className="text-4xl md:text-6xl font-black text-white tracking-tight">
-            Wholesale <span className="text-amber-400">Product Catalog</span>
+          <h1 className="text-4xl md:text-6xl font-black text-black tracking-tight">
+            Wholesale <span className="text-amber-600">Product Catalog</span>
           </h1>
-          <p className="text-gray-300 text-base md:text-lg max-w-2xl mx-auto">
+          <p className="text-black/60 text-base md:text-lg max-w-2xl mx-auto">
             Browse all 100+ premium products distributed by JJGM & CO. Filter by category or search for specific items to request bulk pricing.
           </p>
 
@@ -70,7 +70,7 @@ export default function ProductsPage() {
       </section>
 
       {/* Filter and Search Bar */}
-      <section className="py-6 px-4 sm:px-6 lg:px-8 sticky top-20 z-40 bg-[#0d0c0a]/95 backdrop-blur-md border-b border-white/10">
+      <section className="py-6 px-4 sm:px-6 lg:px-8 sticky top-20 z-40 bg-white/95 backdrop-blur-md border-b border-black/5">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0">
             {categories.map((cat) => (
@@ -80,7 +80,7 @@ export default function ProductsPage() {
                 className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
                   selectedCategory === cat
                     ? "bg-amber-500 text-black shadow-md shadow-amber-500/20"
-                    : "bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white"
+                    : "bg-black/5 text-black/70 hover:bg-black/10 hover:text-black border border-black/10"
                 }`}
               >
                 {cat}
@@ -94,10 +94,10 @@ export default function ProductsPage() {
               placeholder="Search 100+ products..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-xl text-sm text-white placeholder-gray-400 focus:outline-none focus:border-amber-500 transition-colors"
+              className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-black/10 rounded-xl text-sm text-black placeholder-black/40 focus:outline-none focus:border-amber-500 transition-colors"
             />
             <svg
-              className="w-4 h-4 text-gray-400 absolute left-3.5 top-3.5"
+              className="w-4 h-4 text-black/40 absolute left-3.5 top-3.5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -115,14 +115,14 @@ export default function ProductsPage() {
 
       {/* Catalog Grid Section */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="flex items-center justify-between pb-6 border-b border-white/5">
-          <p className="text-sm text-gray-400">
-            Showing <strong className="text-amber-400">{filteredProducts.length}</strong> of {PRODUCTS.length} products
+        <div className="flex items-center justify-between pb-6 border-b border-black/5">
+          <p className="text-sm text-black/60">
+            Showing <strong className="text-amber-700">{filteredProducts.length}</strong> of {PRODUCTS.length} products
           </p>
           {searchQuery && (
             <button
               onClick={() => setSearchQuery("")}
-              className="text-xs text-amber-400 hover:underline"
+              className="text-xs text-amber-700 hover:underline"
             >
               Clear search filter
             </button>
@@ -131,8 +131,8 @@ export default function ProductsPage() {
 
         {filteredProducts.length === 0 ? (
           <div className="py-24 text-center space-y-4">
-            <h3 className="text-2xl font-bold text-gray-400">No products found</h3>
-            <p className="text-sm text-gray-500">Try adjusting your category filter or search query.</p>
+            <h3 className="text-2xl font-bold text-black/60">No products found</h3>
+            <p className="text-sm text-black/50">Try adjusting your category filter or search query.</p>
             <button
               onClick={() => {
                 setSelectedCategory("All");

@@ -31,17 +31,17 @@ export default function InquiryPage() {
   };
 
   return (
-    <main className="bg-[#0d0c0a] min-h-screen text-white pb-24">
+    <main className="bg-white min-h-screen text-black pb-24">
       {/* Banner */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#1c1914] via-[#12100d] to-[#0d0c0a] border-b border-white/10 text-center">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 via-white to-white border-b border-black/5 text-center">
         <div className="max-w-4xl mx-auto space-y-4">
-          <span className="px-4 py-1.5 rounded-full bg-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-widest border border-amber-500/30">
+          <span className="px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-700 text-xs font-bold uppercase tracking-widest border border-amber-500/20">
             Wholesale Basket
           </span>
-          <h1 className="text-4xl md:text-5xl font-black tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-black tracking-tight text-black">
             Request Bulk Price Quote
           </h1>
-          <p className="text-gray-300 text-sm md:text-base">
+          <p className="text-black/60 text-sm md:text-base">
             Review your selected products and submit a bulk order quote request to JJGM & CO.
           </p>
         </div>

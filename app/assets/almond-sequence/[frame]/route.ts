@@ -8,8 +8,8 @@ export async function GET(
 ) {
   const frameName = params.frame;
   
-  // Directly read from the existing "almond animation assets" folder in the project root
-  const imagePath = path.join(process.cwd(), 'almond animation assets', frameName);
+  // Directly read from the "almond animation" folder in the project root
+  const imagePath = path.join(process.cwd(), 'almond animation', frameName);
 
   try {
     if (fs.existsSync(imagePath)) {

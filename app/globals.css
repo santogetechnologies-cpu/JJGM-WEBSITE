@@ -4,8 +4,8 @@
 
 html,
 body {
-  background-color: #0d0c0a;
-  color: white;
+  background-color: #ffffff;
+  color: #000000;
   margin: 0;
   padding: 0;
   /* clip avoids horizontal scroll without breaking position:sticky (hidden does) */
