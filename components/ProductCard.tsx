@@ -32,6 +32,11 @@ export default function ProductCard({
           alt={product.name}
           className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
+          onError={(e) => {
+            const target = e.target as HTMLImageElement;
+            target.src = '/logo.png'; // Fallback to logo if image fails
+            target.onerror = null; // Prevent infinite loop
+          }}
         />
 
         {/* Quick View Overlay Button */}

@@ -240,89 +240,76 @@ export default function UnifiedHomepageExperience() {
             aria-hidden="true"
           />
 
-          {/* Scroll-triggered animated text overlays */}
-          <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
-            {/* Text 1: Opening - Top Left */}
-            <div
-              className="absolute top-[15%] left-[10%] text-black text-2xl md:text-4xl font-black tracking-tight transition-all duration-700"
-              style={{
-                opacity: getTextOpacity(0, 0.08, 0.16),
-                transform: `translateY(${(1 - getTextOpacity(0, 0.08, 0.16)) * 20}px)`,
-              }}
-            >
-              Premium Wholesale
-            </div>
+          {/* Scroll-triggered animated text overlays - completely redesigned */}
+          <div className="absolute inset-0 pointer-events-none">
 
-            {/* Text 2: Early - Right Side */}
+            {/* Text 1: Key Message - Left Side (same timing as products) */}
             <div
-              className="absolute top-[25%] right-[12%] text-black text-xl md:text-3xl font-bold tracking-wide transition-all duration-700"
+              className="absolute top-[40%] left-[5%] md:left-[8%]"
               style={{
-                opacity: getTextOpacity(0.12, 0.20, 0.28),
-                transform: `translateX(${(1 - getTextOpacity(0.12, 0.20, 0.28)) * -20}px)`,
+                opacity: getTextOpacity(0.08, 0.18, 0.32),
+                transform: `translateX(${(1 - getTextOpacity(0.08, 0.18, 0.32)) * -40}px)`,
               }}
             >
-              JJGM & CO
-            </div>
-
-            {/* Text 3: Quarter - Bottom Left */}
-            <div
-              className="absolute bottom-[30%] left-[8%] text-black text-lg md:text-2xl font-semibold tracking-wider transition-all duration-700"
-              style={{
-                opacity: getTextOpacity(0.24, 0.32, 0.40),
-                transform: `translateY(${(1 - getTextOpacity(0.24, 0.32, 0.40)) * -20}px)`,
-              }}
-            >
-              Nuts • Wafers • Confectionery
-            </div>
-
-            {/* Text 4: Mid - Center Top */}
-            <div
-              className="absolute top-[18%] left-1/2 -translate-x-1/2 text-black text-2xl md:text-4xl font-black tracking-tight transition-all duration-700"
-              style={{
-                opacity: getTextOpacity(0.36, 0.44, 0.52),
-                transform: `translate(-50%, ${(1 - getTextOpacity(0.36, 0.44, 0.52)) * 30}px)`,
-              }}
-            >
-              UK Distribution
-            </div>
-
-            {/* Text 5: Mid-Late - Right Bottom */}
-            <div
-              className="absolute bottom-[25%] right-[10%] text-black text-xl md:text-3xl font-bold tracking-wide transition-all duration-700"
-              style={{
-                opacity: getTextOpacity(0.48, 0.56, 0.64),
-                transform: `translateX(${(1 - getTextOpacity(0.48, 0.56, 0.64)) * -30}px)`,
-              }}
-            >
-              100+ Products
-            </div>
-
-            {/* Text 6: Late - Left Center */}
-            <div
-              className="absolute top-[45%] left-[12%] text-black text-lg md:text-2xl font-semibold tracking-wider transition-all duration-700"
-              style={{
-                opacity: getTextOpacity(0.60, 0.68, 0.76),
-                transform: `translateY(${(1 - getTextOpacity(0.60, 0.68, 0.76)) * 20}px)`,
-              }}
-            >
-              Trade-Focused Pricing
-            </div>
-
-            {/* Text 7: Final - Center */}
-            <div
-              className="absolute top-[35%] left-1/2 -translate-x-1/2 text-center transition-all duration-700"
-              style={{
-                opacity: getTextOpacity(0.72, 0.80, 0.88),
-                transform: `translate(-50%, ${(1 - getTextOpacity(0.72, 0.80, 0.88)) * -30}px) scale(${0.9 + getTextOpacity(0.72, 0.80, 0.88) * 0.1})`,
-              }}
-            >
-              <div className="text-black text-3xl md:text-5xl font-black tracking-tight">
-                Built for UK Retailers
+              <div className="text-3xl md:text-5xl font-bold text-black tracking-tight">
+                UK Trade
               </div>
-              <div className="text-black/70 text-base md:text-xl font-medium tracking-wide mt-2">
-                Hounslow • London
+              <div className="text-xl md:text-3xl font-light text-black/60 tracking-wide mt-1">
+                100+ Products
               </div>
             </div>
+
+            {/* Text 2: Product Range - Right Side Vertical (same timing as UK Trade) */}
+            <div
+              className="absolute top-[35%] right-[5%] md:right-[8%] text-right"
+              style={{
+                opacity: getTextOpacity(0.08, 0.18, 0.32),
+                transform: `translateX(${(1 - getTextOpacity(0.08, 0.18, 0.32)) * 40}px)`,
+              }}
+            >
+              <div className="text-2xl md:text-4xl font-semibold text-black tracking-tight">
+                Nuts
+              </div>
+              <div className="text-2xl md:text-4xl font-semibold text-black tracking-tight mt-1">
+                Wafers
+              </div>
+              <div className="text-2xl md:text-4xl font-semibold text-black tracking-tight mt-1">
+                Confectionery
+              </div>
+            </div>
+
+            {/* Text 3: Value Prop - More Left */}
+            <div
+              className="absolute top-[30%] left-[3%] md:left-[6%]"
+              style={{
+                opacity: getTextOpacity(0.42, 0.52, 0.66),
+                transform: `translateX(${(1 - getTextOpacity(0.42, 0.52, 0.66)) * -40}px)`,
+              }}
+            >
+              <div className="text-3xl md:text-5xl font-bold text-black tracking-tight">
+                Trade Pricing
+              </div>
+              <div className="text-xl md:text-3xl font-light text-black/60 tracking-wide mt-1">
+                Hounslow Based
+              </div>
+            </div>
+
+            {/* Text 4: Final Message - Bottom Right (same timing as Trade Pricing) */}
+            <div
+              className="absolute bottom-[15%] right-[5%] md:right-[10%] text-right"
+              style={{
+                opacity: getTextOpacity(0.42, 0.52, 0.66),
+                transform: `translateX(${(1 - getTextOpacity(0.42, 0.52, 0.66)) * 40}px)`,
+              }}
+            >
+              <div className="text-3xl md:text-5xl font-black text-black tracking-tight">
+                Wholesale Excellence
+              </div>
+              <div className="text-lg md:text-2xl font-light text-black/70 tracking-wide mt-2">
+                Trusted by UK Retailers
+              </div>
+            </div>
+
           </div>
         </div>
 
