@@ -53,7 +53,7 @@ export default function ProductsPage() {
             Wholesale <span className="text-amber-600">Product Catalog</span>
           </h1>
           <p className="text-black/60 text-base md:text-lg max-w-2xl mx-auto">
-            Browse all 100+ premium products distributed by JJGM & CO. Filter by category or search for specific items to request bulk pricing.
+            Browse 100+ wholesale products across snacks, nuts, bakery, confectionery and nutrition. Search or filter by category to build your trade order.
           </p>
 
           {quoteItems.length > 0 && (
@@ -72,20 +72,23 @@ export default function ProductsPage() {
       {/* Filter and Search Bar */}
       <section className="py-6 px-4 sm:px-6 lg:px-8 sticky top-20 z-40 bg-white/95 backdrop-blur-md border-b border-black/5">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
-                  selectedCategory === cat
-                    ? "bg-amber-500 text-black shadow-md shadow-amber-500/20"
-                    : "bg-black/5 text-black/70 hover:bg-black/10 hover:text-black border border-black/10"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+          {/* Horizontally scrollable filter buttons on mobile */}
+          <div className="w-full md:w-auto overflow-x-auto scrollbar-hide">
+            <div className="flex items-center gap-2 pb-2 md:pb-0 min-w-max md:min-w-0">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 whitespace-nowrap ${
+                    selectedCategory === cat
+                      ? "bg-amber-500 text-black shadow-md shadow-amber-500/20"
+                      : "bg-black/5 text-black/70 hover:bg-black/10 hover:text-black border border-black/10"
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
           </div>
 
           <div className="relative w-full md:w-80">

@@ -92,33 +92,58 @@ export default function AboutPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="p-6 bg-gray-50 rounded-2xl border border-black/5 space-y-3 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-700 flex items-center justify-center font-bold border border-amber-500/20">01</div>
-              <h3 className="text-lg font-bold text-black">Artisanal Crunch</h3>
+            {/* Card 1 */}
+            <div className="p-6 bg-gray-50 rounded-2xl border border-black/5 space-y-3 shadow-sm hover:shadow-md hover:border-amber-500 hover:-translate-y-1 transition-all group">
+              <div className="flex items-center justify-between">
+                <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-700 flex items-center justify-center font-bold border border-amber-500/20 text-sm">01</div>
+                <svg className="w-8 h-8 text-amber-600/30 group-hover:text-amber-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold text-black">Premium Product Range</h3>
               <p className="text-xs text-black/60 leading-relaxed">
                 Slow-roasted California whole almonds and nuts dry roasted for maximum flavor.
               </p>
             </div>
 
-            <div className="p-6 bg-gray-50 rounded-2xl border border-black/5 space-y-3 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-700 flex items-center justify-center font-bold border border-amber-500/20">02</div>
-              <h3 className="text-lg font-bold text-black">100+ Catalog Items</h3>
+            {/* Card 2 */}
+            <div className="p-6 bg-gray-50 rounded-2xl border border-black/5 space-y-3 shadow-sm hover:shadow-md hover:border-amber-500 hover:-translate-y-1 transition-all group">
+              <div className="flex items-center justify-between">
+                <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-700 flex items-center justify-center font-bold border border-amber-500/20 text-sm">02</div>
+                <svg className="w-8 h-8 text-amber-600/30 group-hover:text-amber-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold text-black">100+ Wholesale Products</h3>
               <p className="text-xs text-black/60 leading-relaxed">
                 From traditional Bombay mix to European Tago wafer rolls and creatine bars.
               </p>
             </div>
 
-            <div className="p-6 bg-gray-50 rounded-2xl border border-black/5 space-y-3 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-700 flex items-center justify-center font-bold border border-amber-500/20">03</div>
-              <h3 className="text-lg font-bold text-black">UK Wholesale Network</h3>
+            {/* Card 3 */}
+            <div className="p-6 bg-gray-50 rounded-2xl border border-black/5 space-y-3 shadow-sm hover:shadow-md hover:border-amber-500 hover:-translate-y-1 transition-all group">
+              <div className="flex items-center justify-between">
+                <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-700 flex items-center justify-center font-bold border border-amber-500/20 text-sm">03</div>
+                <svg className="w-8 h-8 text-amber-600/30 group-hover:text-amber-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold text-black">UK Distribution</h3>
               <p className="text-xs text-black/60 leading-relaxed">
                 Fast, dependable wholesale delivery from our Hounslow distribution hub.
               </p>
             </div>
 
-            <div className="p-6 bg-gray-50 rounded-2xl border border-black/5 space-y-3 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-700 flex items-center justify-center font-bold border border-amber-500/20">04</div>
-              <h3 className="text-lg font-bold text-black">Trade Pricing</h3>
+            {/* Card 4 */}
+            <div className="p-6 bg-gray-50 rounded-2xl border border-black/5 space-y-3 shadow-sm hover:shadow-md hover:border-amber-500 hover:-translate-y-1 transition-all group">
+              <div className="flex items-center justify-between">
+                <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-700 flex items-center justify-center font-bold border border-amber-500/20 text-sm">04</div>
+                <svg className="w-8 h-8 text-amber-600/30 group-hover:text-amber-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold text-black">Trade-Focused Pricing</h3>
               <p className="text-xs text-black/60 leading-relaxed">
                 Competitive bulk margins tailored for convenience stores and supermarkets.
               </p>

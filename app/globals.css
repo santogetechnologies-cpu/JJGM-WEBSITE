@@ -15,3 +15,13 @@ body {
 body {
   overflow-y: visible;
 }
+
+/* Hide scrollbar for horizontally scrollable filters */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
