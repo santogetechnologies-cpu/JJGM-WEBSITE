@@ -46,7 +46,7 @@ export default function Footer() {
                 </svg>
                 <div>
                   <strong className="block text-black">Office Address:</strong>
-                  <span className="text-black/60 capitalize">{COMPANY_DETAILS.address}</span>
+                  <span className="text-black/60">105, Myrtle Road, Hounslow, TW3 1QE</span>
                 </div>
               </li>
               
@@ -76,10 +76,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Quick Navigation */}
+          {/* Column 3: Quick Links */}
           <div className="space-y-4">
             <h4 className="text-black text-sm font-bold uppercase tracking-wider border-l-2 border-amber-500 pl-3">
-              Explore Website
+              Quick Links
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
@@ -102,33 +102,45 @@ export default function Footer() {
                   Wholesale & Distribution Contact
                 </Link>
               </li>
-              <li>
-                <Link href="/inquiry" className="hover:text-amber-600 transition-colors">
-                  Request Bulk Price Quote
-                </Link>
-              </li>
             </ul>
           </div>
 
-          {/* Column 4: Wholesale Range & Hours */}
+          {/* Column 4: Wholesale */}
           <div className="space-y-4">
             <h4 className="text-black text-sm font-bold uppercase tracking-wider border-l-2 border-amber-500 pl-3">
-              Product Categories
+              Wholesale
             </h4>
-            <div className="flex flex-wrap gap-1.5 text-[11px]">
-              <span className="px-2.5 py-1 rounded bg-black/5 border border-black/10 text-black/70">Nuts & Roasted</span>
-              <span className="px-2.5 py-1 rounded bg-black/5 border border-black/10 text-black/70">Bombay Mix</span>
-              <span className="px-2.5 py-1 rounded bg-black/5 border border-black/10 text-black/70">Tago Wafers</span>
-              <span className="px-2.5 py-1 rounded bg-black/5 border border-black/10 text-black/70">Creatine Bars</span>
-              <span className="px-2.5 py-1 rounded bg-black/5 border border-black/10 text-black/70">Pork Crunch</span>
-              <span className="px-2.5 py-1 rounded bg-black/5 border border-black/10 text-black/70">Popcorn</span>
-              <span className="px-2.5 py-1 rounded bg-black/5 border border-black/10 text-black/70">Gingerbread</span>
-              <span className="px-2.5 py-1 rounded bg-black/5 border border-black/10 text-black/70">Confectionery</span>
-            </div>
+            <ul className="space-y-2 text-xs">
+              <li>
+                <Link href="/inquiry" className="hover:text-amber-600 transition-colors">
+                  Request Quote
+                </Link>
+              </li>
+              <li>
+                <Link href="/products" className="hover:text-amber-600 transition-colors">
+                  Wholesale Catalogue
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-amber-600 transition-colors">
+                  Become Trade Customer
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-amber-600 transition-colors">
+                  Delivery Info
+                </Link>
+              </li>
+            </ul>
 
-            <div className="pt-2 text-xs text-black/60">
-              <strong className="text-black block">Business Hours:</strong>
-              <span>Mon - Sat: 8:00 AM - 7:00 PM</span>
+            <div className="pt-3 space-y-1.5">
+              <p className="text-[11px] text-black/70 font-semibold">Product Range:</p>
+              <div className="flex flex-wrap gap-1.5 text-[10px]">
+                <span className="px-2 py-0.5 rounded bg-black/5 border border-black/10 text-black/60">Nuts</span>
+                <span className="px-2 py-0.5 rounded bg-black/5 border border-black/10 text-black/60">Wafers</span>
+                <span className="px-2 py-0.5 rounded bg-black/5 border border-black/10 text-black/60">Savouries</span>
+                <span className="px-2 py-0.5 rounded bg-black/5 border border-black/10 text-black/60">Confectionery</span>
+              </div>
             </div>
           </div>
 
@@ -136,7 +148,7 @@ export default function Footer() {
 
         {/* Bottom copyright line */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-black/50 gap-4">
-          <p>© {new Date().getFullYear()} JJGM & CO. All Rights Reserved. Office: 105, myrtle road hounslow tw31qe.</p>
+          <p>© {new Date().getFullYear()} JJGM & CO. All Rights Reserved. Office: 105, Myrtle Road, Hounslow, TW3 1QE.</p>
           <p>Founder: <span className="capitalize">{COMPANY_DETAILS.founder}</span> | Phone: {COMPANY_DETAILS.phone}</p>
         </div>
       </div>
