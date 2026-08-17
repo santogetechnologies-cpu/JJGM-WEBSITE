@@ -69,6 +69,54 @@ export default function ProductsPage() {
         </div>
       </section>
 
+      {/* Lifestyle Banner - Why Choose JJGM & CO */}
+      <section className="relative py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-amber-50 via-white to-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div className="relative h-[350px] rounded-3xl overflow-hidden shadow-2xl">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/lifestyle/warehouse-2.jpg"
+                alt="JJGM & CO Distribution Center"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent flex items-center p-8">
+                <div className="text-white">
+                  <h3 className="text-3xl font-black mb-2">Stocked & Ready</h3>
+                  <p className="text-white/90 text-sm">Fast wholesale delivery from Hounslow</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <h3 className="text-2xl md:text-3xl font-black text-black">
+                Premium Products, Competitive Trade Prices
+              </h3>
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-amber-600 shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <p className="text-black/70 text-sm"><strong>100+ SKUs</strong> across nuts, wafers, savouries & confectionery</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-amber-600 shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <p className="text-black/70 text-sm"><strong>Bulk wholesale pricing</strong> for retailers, convenience stores & supermarkets</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-amber-600 shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <p className="text-black/70 text-sm"><strong>24-48h delivery</strong> across London & UK from our distribution hub</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Filter and Search Bar */}
       <section className="py-6 px-4 sm:px-6 lg:px-8 sticky top-20 z-40 bg-white/95 backdrop-blur-md border-b border-black/5">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
