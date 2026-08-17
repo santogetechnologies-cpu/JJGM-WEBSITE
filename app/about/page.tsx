@@ -162,8 +162,162 @@ export default function AboutPage() {
           </div>
         </div>
 
+        {/* Premium Product Showcase Section with Images */}
+        <div className="pt-16 border-t border-black/5">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-black text-black tracking-tight">
+              Premium Quality Products
+            </h2>
+            <p className="text-black/60 text-base mt-4 max-w-2xl mx-auto">
+              From farm-fresh nuts to European bakery delights, every product meets our strict wholesale standards
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Nuts & Dried Fruits */}
+            <div className="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/lifestyle/nuts-assortment.jpg"
+                alt="Premium Nuts Assortment"
+                className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end p-6">
+                <div>
+                  <h3 className="text-2xl font-bold text-white">Premium Nuts Range</h3>
+                  <p className="text-white/90 text-sm mt-2">Almonds, Cashews, Pistachios & More</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Wafers & Bakery */}
+            <div className="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/lifestyle/wafer-rolls.jpg"
+                alt="Wafer Rolls Collection"
+                className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end p-6">
+                <div>
+                  <h3 className="text-2xl font-bold text-white">European Wafers</h3>
+                  <p className="text-white/90 text-sm mt-2">Tago Premium Wafer Rolls</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Confectionery */}
+            <div className="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/lifestyle/snacks-pile.jpg"
+                alt="Snacks & Confectionery"
+                className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end p-6">
+                <div>
+                  <h3 className="text-2xl font-bold text-white">Savouries & Snacks</h3>
+                  <p className="text-white/90 text-sm mt-2">Bombay Mix, Popcorn & Crisps</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Warehouse & Distribution Section */}
+        <div className="pt-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="relative">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/lifestyle/warehouse-1.jpg"
+                alt="JJGM & CO Warehouse Distribution"
+                className="w-full h-[400px] object-cover rounded-3xl shadow-2xl"
+              />
+              <div className="absolute -bottom-6 -right-6 w-48 h-48 rounded-2xl overflow-hidden border-4 border-white shadow-xl hidden md:block">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/lifestyle/delivery-courier.jpg"
+                  alt="Fast Delivery Service"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <span className="inline-block px-4 py-2 bg-amber-500/10 text-amber-700 text-xs font-bold uppercase tracking-wider rounded-full border border-amber-500/20">
+                UK-Wide Distribution
+              </span>
+              <h2 className="text-3xl md:text-4xl font-black text-black tracking-tight">
+                Efficient Logistics & Fast Delivery
+              </h2>
+              <p className="text-black/70 text-base leading-relaxed">
+                Operating from our Hounslow distribution center, we ensure rapid turnaround times for wholesale orders across London and the UK. Our dedicated logistics team manages inventory, quality control, and timely deliveries to keep your shelves stocked.
+              </p>
+              
+              <div className="grid grid-cols-2 gap-4 pt-4">
+                <div className="p-4 bg-gray-50 rounded-xl border border-black/5">
+                  <div className="text-3xl font-black text-amber-600">24-48h</div>
+                  <div className="text-sm text-black/60 mt-1">Delivery Time</div>
+                </div>
+                <div className="p-4 bg-gray-50 rounded-xl border border-black/5">
+                  <div className="text-3xl font-black text-amber-600">500+</div>
+                  <div className="text-sm text-black/60 mt-1">Active Retailers</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Family Business Section */}
+        <div className="pt-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6 order-2 lg:order-1">
+              <span className="inline-block px-4 py-2 bg-amber-500/10 text-amber-700 text-xs font-bold uppercase tracking-wider rounded-full border border-amber-500/20">
+                Family Values
+              </span>
+              <h2 className="text-3xl md:text-4xl font-black text-black tracking-tight">
+                Serving UK Families & Retailers
+              </h2>
+              <p className="text-black/70 text-base leading-relaxed">
+                JJGM & CO isn't just a distributor—we're a family business that understands the needs of UK families and independent retailers. Every product we supply ends up on family tables, in convenience stores, and in local supermarkets across the country.
+              </p>
+              
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <svg className="w-6 h-6 text-amber-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <p className="text-black/70 text-sm">Quality products families trust</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <svg className="w-6 h-6 text-amber-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <p className="text-black/70 text-sm">Supporting independent retailers</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <svg className="w-6 h-6 text-amber-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <p className="text-black/70 text-sm">Building long-term trade partnerships</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative order-1 lg:order-2">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/lifestyle/happy-family.jpg"
+                alt="Happy UK Family"
+                className="w-full h-[450px] object-cover rounded-3xl shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+
         {/* CTA section */}
-        <div className="text-center pt-8">
+        <div className="text-center pt-16">
           <Link
             href="/contact"
             className="inline-block px-8 py-4 bg-amber-500 text-black font-extrabold text-sm uppercase tracking-widest rounded-full hover:bg-amber-400 transition-all shadow-xl shadow-amber-500/20"
