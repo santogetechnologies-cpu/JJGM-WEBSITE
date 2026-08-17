@@ -176,6 +176,7 @@ export default function UnifiedHomepageExperience() {
       const progress = Math.max(0, Math.min(1, scrollPx / totalScrollable));
 
       progressRef.current = progress;
+      setScrollProgress(progress);
       drawFrame(progress * (TOTAL_FRAMES - 1));
     };
 
@@ -213,7 +214,7 @@ export default function UnifiedHomepageExperience() {
 
   // Calculate opacity for each text segment based on scroll progress
   const getTextOpacity = (startProgress: number, peakProgress: number, endProgress: number) => {
-    const progress = progressRef.current;
+    const progress = scrollProgress;
     if (progress < startProgress || progress > endProgress) return 0;
     if (progress < peakProgress) {
       return (progress - startProgress) / (peakProgress - startProgress);
