@@ -39,19 +39,30 @@ export default function AboutPage() {
             </p>
 
             {/* Founder Card */}
-            <div className="p-6 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-amber-500/20 space-y-3 shadow-sm">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-amber-500 text-black flex items-center justify-center font-black text-xl">
+            <div className="p-6 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-amber-500/20 space-y-4 shadow-sm">
+              <div className="text-center pb-4 border-b border-black/5">
+                <p className="text-xs font-bold uppercase tracking-wider text-amber-700 mb-2">Built by People Who Know the Trade</p>
+                <p className="text-sm text-black/70 leading-relaxed">
+                  JJGM & CO was built around a simple idea: make premium food products easier for UK retailers and businesses to source reliably.
+                </p>
+              </div>
+              
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-500 to-amber-600 text-white flex items-center justify-center font-black text-2xl shadow-lg">
                   GD
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-black capitalize">{COMPANY_DETAILS.founder}</h3>
-                  <p className="text-xs text-amber-700 uppercase tracking-wider">Founder & Managing Director</p>
+                  <h3 className="text-xl font-bold text-black capitalize">{COMPANY_DETAILS.founder}</h3>
+                  <p className="text-xs text-amber-700 font-semibold uppercase tracking-wider">Founder & Managing Director</p>
+                  <p className="text-xs text-black/60 mt-1">Hounslow, London</p>
                 </div>
               </div>
-              <p className="text-xs text-black/60 italic">
-                "Our commitment at JJGM & CO is to provide every client with fresh, delicious, top-tier snacks backed by honest service and reliable UK logistics."
-              </p>
+              
+              <div className="pt-4 border-t border-black/5">
+                <p className="text-sm text-black/70 leading-relaxed italic">
+                  "Our commitment at JJGM & CO is to provide every client with fresh, delicious, top-tier snacks backed by honest service and reliable UK logistics."
+                </p>
+              </div>
             </div>
           </div>
 
