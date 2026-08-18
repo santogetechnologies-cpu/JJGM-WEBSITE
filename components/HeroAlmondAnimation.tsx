@@ -224,6 +224,9 @@ export default function UnifiedHomepageExperience() {
 
   return (
     <div className="w-full bg-white relative">
+      {/* White line to cover top gap */}
+      <div className="w-full h-1 bg-white relative z-10" style={{ marginTop: '-1px' }} />
+      
       {/* Scroll-driven animation only — no overlay content */}
       <div
         ref={wrapperRef}
@@ -244,7 +247,9 @@ export default function UnifiedHomepageExperience() {
             border: 'none',
             outline: 'none',
             lineHeight: '0',
-            fontSize: '0'
+            fontSize: '0',
+            borderTop: '2px solid #ffffff',
+            borderBottom: '2px solid #ffffff'
           }}
         >
           <canvas
@@ -344,6 +349,9 @@ export default function UnifiedHomepageExperience() {
           }
         />
       </div>
+
+      {/* White line to cover bottom gap */}
+      <div className="w-full h-1 bg-white relative z-10" style={{ marginBottom: '-1px' }} />
 
       {/* Static content — appears only after the animation section ends */}
       <section className="relative bg-white px-4 py-24 sm:px-6 md:py-32 lg:px-8" style={{ marginTop: '-5rem', paddingTop: '8rem' }}>
