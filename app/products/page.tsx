@@ -42,11 +42,11 @@ export default function ProductsPage() {
   };
 
   return (
-    <main className="bg-white min-h-screen text-black pt-24 pb-24">
+    <main className="bg-white min-h-screen text-black pb-24">
       {/* Catalog Header Banner */}
-      <section className="relative py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 via-white to-white border-b border-black/5">
+      <section className="pt-28 pb-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 via-white to-white">
         <div className="max-w-7xl mx-auto text-center space-y-4">
-          <span className="px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-700 text-xs font-bold uppercase tracking-widest border border-amber-500/20">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-700 text-xs font-bold uppercase tracking-widest border border-amber-500/20">
             JJGM & CO Complete Range
           </span>
           <h1 className="text-4xl md:text-6xl font-black text-black tracking-tight">
@@ -122,11 +122,10 @@ export default function ProductsPage() {
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 whitespace-nowrap ${
-                    selectedCategory === cat
+                  className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 whitespace-nowrap ${selectedCategory === cat
                       ? "bg-amber-500 text-black shadow-md shadow-amber-500/20"
                       : "bg-black/5 text-black/70 hover:bg-black/10 hover:text-black border border-black/10"
-                  }`}
+                    }`}
                 >
                   {cat}
                 </button>

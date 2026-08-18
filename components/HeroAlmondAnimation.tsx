@@ -132,6 +132,11 @@ export default function UnifiedHomepageExperience() {
       const rect = computeContainRect(img, width, height);
       ctx.drawImage(img, rect.x, rect.y, rect.w, rect.h);
 
+      // Mask top and bottom edge lines of image frame across ALL screen sizes (mobile, tablet, desktop, full-screen)
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, Math.floor(rect.y) - 1, width, 4);
+      ctx.fillRect(0, Math.floor(rect.y + rect.h) - 2, width, 4);
+
       lastDrawnFrameRef.current = frameIndex;
     },
     [computeContainRect]
@@ -225,22 +230,26 @@ export default function UnifiedHomepageExperience() {
   return (
     <div className="w-full bg-white relative">
       {/* Leave space for navbar */}
-      <div className="h-20 w-full bg-white" />
-      
+      <div className="h-12 md:h-20 w-full bg-white" />
+
       {/* White line to cover top gap */}
       <div className="w-full h-1 bg-white relative z-10" style={{ marginTop: '-1px' }} />
-      
+
       {/* Scroll-driven animation only — no overlay content */}
       <div
         ref={wrapperRef}
         className="relative w-full bg-white"
-        style={{ 
-          height: `calc(${SCROLL_HEIGHT_VH}vh)`, 
+        style={{
+          height: `calc(${SCROLL_HEIGHT_VH}vh)`,
           marginTop: '0',
           paddingTop: '0px',
           paddingBottom: '0px'
         }}
       >
+        {/* White mask overlays to hide top & bottom thin border lines across ALL breakpoints */}
+        <div className="absolute top-0 left-0 right-0 h-3 bg-white z-50 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-3 bg-white z-50 pointer-events-none" />
+
         <div
           ref={containerRef}
           className="sticky top-0 h-screen w-full overflow-hidden bg-white"
@@ -250,11 +259,13 @@ export default function UnifiedHomepageExperience() {
             border: 'none',
             outline: 'none',
             lineHeight: '0',
-            fontSize: '0',
-            borderTop: '2px solid #ffffff',
-            borderBottom: '2px solid #ffffff'
+            fontSize: '0'
           }}
         >
+          {/* White mask overlays to hide subpixel lines across ALL breakpoints */}
+          <div className="absolute top-0 left-0 right-0 h-3 bg-white z-50 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 right-0 h-3 bg-white z-50 pointer-events-none" />
+
           <canvas
             ref={canvasRef}
             className="absolute inset-0 block h-full w-full bg-white"
@@ -275,69 +286,69 @@ export default function UnifiedHomepageExperience() {
 
             {/* Text 1: Key Message - Left Side (same timing as products) */}
             <div
-              className="absolute top-[40%] left-[5%] md:left-[8%]"
+              className="absolute top-[10%] left-5 right-5 sm:left-8 sm:right-auto md:top-[40%] md:left-[8%]"
               style={{
                 opacity: getTextOpacity(0.08, 0.18, 0.32),
                 transform: `translateX(${(1 - getTextOpacity(0.08, 0.18, 0.32)) * -40}px)`,
               }}
             >
-              <div className="text-3xl md:text-5xl font-bold text-black tracking-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-black tracking-tight leading-tight">
                 UK Trade
-              </div>
-              <div className="text-xl md:text-3xl font-light text-black/60 tracking-wide mt-1">
+              </h2>
+              <p className="text-sm sm:text-base md:text-3xl font-light text-black/60 tracking-wide mt-1">
                 100+ Products
-              </div>
+              </p>
             </div>
 
             {/* Text 2: Product Range - Right Side Vertical (same timing as UK Trade) */}
             <div
-              className="absolute top-[35%] right-[5%] md:right-[8%] text-right"
+              className="absolute bottom-[10%] right-5 left-5 text-right sm:right-8 sm:left-auto md:top-[35%] md:bottom-auto md:right-[8%]"
               style={{
                 opacity: getTextOpacity(0.08, 0.18, 0.32),
                 transform: `translateX(${(1 - getTextOpacity(0.08, 0.18, 0.32)) * 40}px)`,
               }}
             >
-              <div className="text-2xl md:text-4xl font-semibold text-black tracking-tight">
+              <div className="text-xl sm:text-2xl md:text-4xl font-semibold text-black tracking-tight leading-snug">
                 Nuts
               </div>
-              <div className="text-2xl md:text-4xl font-semibold text-black tracking-tight mt-1">
+              <div className="text-xl sm:text-2xl md:text-4xl font-semibold text-black tracking-tight leading-snug mt-0.5">
                 Wafers
               </div>
-              <div className="text-2xl md:text-4xl font-semibold text-black tracking-tight mt-1">
+              <div className="text-xl sm:text-2xl md:text-4xl font-semibold text-black tracking-tight leading-snug mt-0.5">
                 Confectionery
               </div>
             </div>
 
             {/* Text 3: Value Prop - More Left */}
             <div
-              className="absolute top-[30%] left-[3%] md:left-[6%]"
+              className="absolute bottom-[10%] left-5 right-5 sm:left-8 sm:right-auto md:top-[30%] md:bottom-auto md:left-[6%]"
               style={{
                 opacity: getTextOpacity(0.42, 0.52, 0.66),
                 transform: `translateX(${(1 - getTextOpacity(0.42, 0.52, 0.66)) * -40}px)`,
               }}
             >
-              <div className="text-3xl md:text-5xl font-bold text-black tracking-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-black tracking-tight leading-tight">
                 Trade Pricing
-              </div>
-              <div className="text-xl md:text-3xl font-light text-black/60 tracking-wide mt-1">
+              </h2>
+              <p className="text-sm sm:text-base md:text-3xl font-light text-black/60 tracking-wide mt-1">
                 Hounslow Based
-              </div>
+              </p>
             </div>
 
             {/* Text 4: Final Message - Bottom Right (same timing as Trade Pricing) */}
             <div
-              className="absolute bottom-[15%] right-[5%] md:right-[10%] text-right"
+              className="absolute bottom-[10%] right-5 left-5 text-right sm:right-8 sm:left-auto md:bottom-[15%] md:right-[10%]"
               style={{
                 opacity: getTextOpacity(0.42, 0.52, 0.66),
                 transform: `translateX(${(1 - getTextOpacity(0.42, 0.52, 0.66)) * 40}px)`,
               }}
             >
-              <div className="text-3xl md:text-5xl font-black text-black tracking-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black tracking-tight leading-tight">
                 Wholesale Excellence
-              </div>
-              <div className="text-base md:text-xl font-light text-black/70 tracking-wide mt-2" style={{ fontSize: '22px' }}>
+              </h2>
+              <p className="text-xs sm:text-base md:text-xl font-light text-black/70 tracking-wide mt-1">
                 Trusted by UK Retailers
-              </div>
+              </p>
             </div>
 
           </div>

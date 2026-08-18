@@ -20,11 +20,11 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="bg-white min-h-screen text-black pt-24 pb-24">
-      {/* Page Header - Reduced padding */}
-      <section className="relative py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 via-white to-white border-b border-black/5 text-center">
+    <main className="bg-white min-h-screen text-black pb-24">
+      {/* Page Header */}
+      <section className="pt-28 pb-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 via-white to-white text-center">
         <div className="max-w-4xl mx-auto space-y-3">
-          <span className="px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-700 text-xs font-bold uppercase tracking-widest border border-amber-500/20">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-700 text-xs font-bold uppercase tracking-widest border border-amber-500/20">
             Wholesale & Trade Inquiries
           </span>
           <h1 className="text-4xl md:text-5xl font-black tracking-tight text-black">
@@ -39,7 +39,7 @@ export default function ContactPage() {
       {/* Main Content - Reduced padding */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          
+
           {/* Left Column: Direct Contact Information */}
           <div className="space-y-6">
             <div>
@@ -59,7 +59,7 @@ export default function ContactPage() {
 
             {/* Contact Details Cards */}
             <div className="space-y-4">
-              
+
               {/* Office Address */}
               <div className="p-6 bg-gray-50 rounded-2xl border border-black/10 flex items-start gap-4 hover:shadow-md transition-shadow">
                 <div className="p-3 bg-amber-500/10 text-amber-600 rounded-xl border border-amber-500/20">

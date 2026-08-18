@@ -15,10 +15,11 @@ fs.mkdirSync(almondTargetDir, { recursive: true });
 fs.mkdirSync(productTargetDir, { recursive: true });
 
 // 1. Copy Logo
+const targetLogo = path.join(publicDir, 'logo.png');
 if (fs.existsSync(logoSource)) {
-  fs.copyFileSync(logoSource, path.join(publicDir, 'logo.png'));
+  fs.copyFileSync(logoSource, targetLogo);
   console.log('Logo copied to public/logo.png');
-} else {
+} else if (!fs.existsSync(targetLogo)) {
   console.warn('Logo source file not found at:', logoSource);
 }
 

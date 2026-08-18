@@ -4,11 +4,11 @@ import { COMPANY_DETAILS } from "@/data/products";
 
 export default function AboutPage() {
   return (
-    <main className="bg-white min-h-screen text-black pt-24 pb-24">
+    <main className="bg-white min-h-screen text-black pb-24">
       {/* Header Banner */}
-      <section className="relative py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 via-white to-white border-b border-black/5 text-center">
+      <section className="pt-28 pb-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 via-white to-white text-center">
         <div className="max-w-4xl mx-auto space-y-4">
-          <span className="px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-700 text-xs font-bold uppercase tracking-widest border border-amber-500/20">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-700 text-xs font-bold uppercase tracking-widest border border-amber-500/20">
             About JJGM & CO
           </span>
           <h1 className="text-4xl md:text-6xl font-black tracking-tight text-black">
@@ -22,9 +22,9 @@ export default function AboutPage() {
 
       {/* Main Story & Founder Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-16">
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          
+
           <div className="space-y-6">
             <h2 className="text-3xl font-extrabold text-black">
               The Story of <span className="text-amber-600">JJGM & CO</span>
@@ -46,7 +46,7 @@ export default function AboutPage() {
                   JJGM & CO was built around a simple idea: make premium food products easier for UK retailers and businesses to source reliably.
                 </p>
               </div>
-              
+
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-500 to-amber-600 text-white flex items-center justify-center font-black text-2xl shadow-lg">
                   GD
@@ -57,7 +57,7 @@ export default function AboutPage() {
                   <p className="text-xs text-black/60 mt-1">Hounslow, London</p>
                 </div>
               </div>
-              
+
               <div className="pt-4 border-t border-black/5">
                 <p className="text-sm text-black/70 leading-relaxed italic">
                   "Our commitment at JJGM & CO is to provide every client with fresh, delicious, top-tier snacks backed by honest service and reliable UK logistics."
@@ -249,7 +249,7 @@ export default function AboutPage() {
               <p className="text-black/70 text-base leading-relaxed">
                 Operating from our Hounslow distribution center, we ensure rapid turnaround times for wholesale orders across London and the UK. Our dedicated logistics team manages inventory, quality control, and timely deliveries to keep your shelves stocked.
               </p>
-              
+
               <div className="grid grid-cols-2 gap-4 pt-4">
                 <div className="p-4 bg-gray-50 rounded-xl border border-black/5">
                   <div className="text-3xl font-black text-amber-600">24-48h</div>
@@ -277,7 +277,7 @@ export default function AboutPage() {
               <p className="text-black/70 text-base leading-relaxed">
                 JJGM & CO isn't just a distributor—we're a family business that understands the needs of UK families and independent retailers. Every product we supply ends up on family tables, in convenience stores, and in local supermarkets across the country.
               </p>
-              
+
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
                   <svg className="w-6 h-6 text-amber-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
