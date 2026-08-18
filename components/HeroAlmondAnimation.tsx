@@ -223,7 +223,7 @@ export default function UnifiedHomepageExperience() {
   };
 
   return (
-    <div className="w-full bg-white">
+    <div className="w-full bg-white -mt-20">
       {/* Scroll-driven animation only — no overlay content */}
       <div
         ref={wrapperRef}

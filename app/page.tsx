@@ -5,7 +5,7 @@ import UnifiedHomepageExperience from "@/components/HeroAlmondAnimation";
 
 export default function Home() {
   return (
-    <main className="bg-white min-h-screen text-black">
+    <main className="bg-white min-h-screen text-black -mt-20">
       {/* 3D Almond Frame Animation Pinned Across Entire Homepage */}
       <UnifiedHomepageExperience />
     </main>
