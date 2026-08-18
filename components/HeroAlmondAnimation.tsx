@@ -228,15 +228,37 @@ export default function UnifiedHomepageExperience() {
       <div
         ref={wrapperRef}
         className="relative w-full bg-white"
-        style={{ height: `calc(${SCROLL_HEIGHT_VH}vh + 5rem)`, marginTop: '-5rem' }}
+        style={{ 
+          height: `calc(${SCROLL_HEIGHT_VH}vh + 5rem)`, 
+          marginTop: '-5rem',
+          paddingTop: '0px',
+          paddingBottom: '0px'
+        }}
       >
         <div
           ref={containerRef}
-          className="sticky top-0 h-screen w-full overflow-hidden bg-white border-0 shadow-none"
+          className="sticky top-0 h-screen w-full overflow-hidden bg-white"
+          style={{
+            margin: '0',
+            padding: '0',
+            border: 'none',
+            outline: 'none',
+            lineHeight: '0',
+            fontSize: '0'
+          }}
         >
           <canvas
             ref={canvasRef}
-            className="absolute inset-0 block h-full w-full bg-white border-0"
+            className="absolute inset-0 block h-full w-full bg-white"
+            style={{
+              margin: '0',
+              padding: '0',
+              border: 'none',
+              outline: 'none',
+              display: 'block',
+              lineHeight: '0',
+              fontSize: '0'
+            }}
             aria-hidden="true"
           />
 
@@ -324,7 +346,7 @@ export default function UnifiedHomepageExperience() {
       </div>
 
       {/* Static content — appears only after the animation section ends */}
-      <section className="relative bg-white px-4 py-24 sm:px-6 md:py-32 lg:px-8 -mt-24">
+      <section className="relative bg-white px-4 py-24 sm:px-6 md:py-32 lg:px-8" style={{ marginTop: '-5rem', paddingTop: '8rem' }}>
         <div className="mx-auto max-w-7xl">
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             {/* Image — Handshake / Partnership */}

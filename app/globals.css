@@ -6,10 +6,11 @@ html,
 body {
   background-color: #ffffff !important;
   color: #000000;
-  margin: 0;
-  padding: 0;
+  margin: 0 !important;
+  padding: 0 !important;
   /* clip avoids horizontal scroll without breaking position:sticky (hidden does) */
   overflow-x: clip;
+  line-height: 1;
 }
 
 body {
@@ -21,8 +22,22 @@ body {
   box-sizing: border-box;
 }
 
+/* Eliminate gaps around animation canvas */
 main {
   background-color: #ffffff !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+canvas {
+  background-color: #ffffff !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  outline: none !important;
+  display: block !important;
+  line-height: 0 !important;
+  font-size: 0 !important;
 }
 
 /* Hide scrollbar for horizontally scrollable filters */
