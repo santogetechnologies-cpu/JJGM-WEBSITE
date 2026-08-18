@@ -228,7 +228,7 @@ export default function UnifiedHomepageExperience() {
       <div
         ref={wrapperRef}
         className="relative w-full bg-white"
-        style={{ height: `${SCROLL_HEIGHT_VH}vh`, paddingTop: '1cm' }}
+        style={{ height: `${SCROLL_HEIGHT_VH}vh` }}
       >
         <div
           ref={containerRef}
