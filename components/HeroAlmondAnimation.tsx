@@ -223,20 +223,20 @@ export default function UnifiedHomepageExperience() {
   };
 
   return (
-    <div className="w-full bg-white -mt-20">
+    <div className="w-full bg-white">
       {/* Scroll-driven animation only — no overlay content */}
       <div
         ref={wrapperRef}
-        className="relative w-full bg-white"
-        style={{ height: `${SCROLL_HEIGHT_VH}vh` }}
+        className="relative w-full bg-white -mt-20"
+        style={{ height: `calc(${SCROLL_HEIGHT_VH}vh + 5rem)` }}
       >
         <div
           ref={containerRef}
-          className="sticky top-0 h-screen w-full overflow-hidden bg-white"
+          className="sticky top-0 h-screen w-full overflow-hidden bg-white border-0 shadow-none"
         >
           <canvas
             ref={canvasRef}
-            className="absolute inset-0 block h-full w-full bg-white"
+            className="absolute inset-0 block h-full w-full bg-white border-0"
             aria-hidden="true"
           />
 
@@ -305,7 +305,7 @@ export default function UnifiedHomepageExperience() {
               <div className="text-3xl md:text-5xl font-black text-black tracking-tight">
                 Wholesale Excellence
               </div>
-              <div className="text-lg md:text-2xl font-light text-black/70 tracking-wide mt-2">
+              <div className="text-base md:text-xl font-light text-black/70 tracking-wide mt-2" style={{ fontSize: '22px' }}>
                 Trusted by UK Retailers
               </div>
             </div>
@@ -324,7 +324,7 @@ export default function UnifiedHomepageExperience() {
       </div>
 
       {/* Static content — appears only after the animation section ends */}
-      <section className="relative bg-white px-4 py-24 sm:px-6 md:py-32 lg:px-8 -mt-1">
+      <section className="relative bg-white px-4 py-24 sm:px-6 md:py-32 lg:px-8 -mt-24">
         <div className="mx-auto max-w-4xl space-y-6 text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-black/5 px-3 py-1 text-xs font-semibold tracking-widest text-black/60">
             Direct UK Trade Distribution
