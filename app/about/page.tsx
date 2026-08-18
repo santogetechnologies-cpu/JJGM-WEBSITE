@@ -178,7 +178,7 @@ export default function AboutPage() {
             <div className="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/lifestyle/nuts-assortment.jpg"
+                src="/products/imghunt_co_20260811_2017_09_21_img_2239.webp"
                 alt="Premium Nuts Assortment"
                 className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700"
               />
@@ -194,7 +194,7 @@ export default function AboutPage() {
             <div className="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/lifestyle/wafer-rolls.jpg"
+                src="/products/imghunt_co_20260811_tago_wafer_rolls_with_cocoa_cream_5239.jpeg"
                 alt="Wafer Rolls Collection"
                 className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700"
               />
@@ -210,7 +210,7 @@ export default function AboutPage() {
             <div className="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/lifestyle/snacks-pile.jpg"
+                src="/products/imghunt_co_20260811_bombay_mix.webp"
                 alt="Snacks & Confectionery"
                 className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700"
               />
@@ -228,19 +228,14 @@ export default function AboutPage() {
         <div className="pt-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/lifestyle/warehouse-1.jpg"
-                alt="JJGM & CO Warehouse Distribution"
-                className="w-full h-[400px] object-cover rounded-3xl shadow-2xl"
-              />
-              <div className="absolute -bottom-6 -right-6 w-48 h-48 rounded-2xl overflow-hidden border-4 border-white shadow-xl hidden md:block">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/lifestyle/delivery-courier.jpg"
-                  alt="Fast Delivery Service"
-                  className="w-full h-full object-cover"
-                />
+              <div className="w-full h-[400px] bg-gradient-to-br from-gray-100 to-gray-50 rounded-3xl shadow-2xl flex items-center justify-center p-12 border border-black/5">
+                <div className="text-center space-y-4">
+                  <svg className="w-24 h-24 mx-auto text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                  </svg>
+                  <h4 className="text-2xl font-bold text-black">Distribution Center</h4>
+                  <p className="text-black/60 text-sm">Hounslow, London</p>
+                </div>
               </div>
             </div>
 
@@ -306,12 +301,15 @@ export default function AboutPage() {
             </div>
 
             <div className="relative order-1 lg:order-2">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/lifestyle/happy-family.jpg"
-                alt="Happy UK Family"
-                className="w-full h-[450px] object-cover rounded-3xl shadow-2xl"
-              />
+              <div className="w-full h-[450px] bg-gradient-to-br from-amber-50 to-gray-50 rounded-3xl shadow-2xl flex items-center justify-center p-12 border border-amber-500/20">
+                <div className="text-center space-y-4">
+                  <svg className="w-32 h-32 mx-auto text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                  <h4 className="text-3xl font-bold text-black">Family Business</h4>
+                  <p className="text-black/60 text-base">Serving UK Retailers Since Day One</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

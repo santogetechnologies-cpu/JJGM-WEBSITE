@@ -6,3 +6,8 @@
 Thumbs.db
 powershell.cmd
 
+# Temporarily ignore large lifestyle images (use CDN instead)
+public/lifestyle/*.jpg
+public/lifestyle/*.jpeg
+public/lifestyle/*.png
+
