@@ -333,7 +333,7 @@ export default function UnifiedHomepageExperience() {
                 <div className="aspect-[4/3] w-full">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20business%20handshake%20between%20two%20diverse%20businessmen%20in%20modern%20office%20with%20cityscape%20skyscraper%20background%20through%20large%20windows%2C%20corporate%20partnership%20deal%2C%20bright%20clean%20white%20aesthetic%2C%20professional%20lighting%2C%20high%20quality&image_size=landscape_4_3"
+                    src="/images/business-partnership.jpg"
                     alt="Business partnership handshake"
                     className="h-full w-full object-cover"
                   />
@@ -398,7 +398,7 @@ export default function UnifiedHomepageExperience() {
               <div className="aspect-[16/9] w-full">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Woman%20customer%20shopping%20in%20modern%20grocery%20supermarket%20holding%20wire%20mesh%20shopping%20basket%20and%20smartphone%2C%20refrigerated%20shelves%20with%20beverages%20and%20food%20products%20in%20background%2C%20casual%20plaid%20shirt%2C%20bright%20clean%20retail%20store%20interior%2C%20professional%20lighting&image_size=landscape_16_9"
+                  src="/images/retail-shopping.jpg"
                   alt="Customer shopping in modern supermarket"
                   className="h-full w-full object-cover"
                 />
