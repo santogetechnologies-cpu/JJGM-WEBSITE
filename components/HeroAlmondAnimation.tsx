@@ -223,12 +223,12 @@ export default function UnifiedHomepageExperience() {
   };
 
   return (
-    <div className="w-full bg-white">
+    <div className="w-full bg-white relative">
       {/* Scroll-driven animation only — no overlay content */}
       <div
         ref={wrapperRef}
-        className="relative w-full bg-white -mt-20"
-        style={{ height: `calc(${SCROLL_HEIGHT_VH}vh + 5rem)` }}
+        className="relative w-full bg-white"
+        style={{ height: `calc(${SCROLL_HEIGHT_VH}vh + 5rem)`, marginTop: '-5rem' }}
       >
         <div
           ref={containerRef}
@@ -325,39 +325,59 @@ export default function UnifiedHomepageExperience() {
 
       {/* Static content — appears only after the animation section ends */}
       <section className="relative bg-white px-4 py-24 sm:px-6 md:py-32 lg:px-8 -mt-24">
-        <div className="mx-auto max-w-4xl space-y-6 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-black/5 px-3 py-1 text-xs font-semibold tracking-widest text-black/60">
-            Direct UK Trade Distribution
-          </div>
+        <div className="mx-auto max-w-7xl">
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            {/* Image — Handshake / Partnership */}
+            <div className="order-2 lg:order-1">
+              <div className="relative overflow-hidden rounded-3xl border border-black/5 shadow-2xl shadow-black/10">
+                <div className="aspect-[4/3] w-full">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20business%20handshake%20between%20two%20diverse%20businessmen%20in%20modern%20office%20with%20cityscape%20skyscraper%20background%20through%20large%20windows%2C%20corporate%20partnership%20deal%2C%20bright%20clean%20white%20aesthetic%2C%20professional%20lighting%2C%20high%20quality&image_size=landscape_4_3"
+                    alt="Business partnership handshake"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+              </div>
+            </div>
 
-          <h2 className="text-4xl font-semibold tracking-tight text-black sm:text-6xl">
-            Partner With Us
-          </h2>
+            {/* Text Content */}
+            <div className="order-1 space-y-6 text-center lg:order-2 lg:text-left">
+              <div className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-black/5 px-3 py-1 text-xs font-semibold tracking-widest text-black/60">
+                Direct UK Trade Distribution
+              </div>
 
-          <p className="mx-auto max-w-xl text-sm font-medium leading-relaxed text-black/60 sm:text-lg">
-            Ready to elevate your product offerings with a premium selection?
-          </p>
+              <h2 className="text-4xl font-semibold tracking-tight text-black sm:text-6xl">
+                Partner With Us
+              </h2>
 
-          <div className="flex flex-col items-center justify-center gap-4 pt-4 sm:flex-row sm:gap-6">
-            <Link
-              href="/products"
-              className="w-full rounded-full bg-black px-8 py-3.5 text-sm font-semibold text-white shadow-xl transition-all duration-300 hover:scale-105 hover:bg-black/80 sm:w-auto"
-            >
-              View Catalog
-            </Link>
+              <p className="mx-auto max-w-xl text-sm font-medium leading-relaxed text-black/60 sm:text-lg lg:mx-0">
+                Ready to elevate your product offerings with a premium selection?
+              </p>
 
-            <Link
-              href="/inquiry"
-              className="w-full rounded-full border border-black/20 bg-transparent px-8 py-3.5 text-sm font-semibold text-black transition-all hover:bg-black/5 sm:w-auto"
-            >
-              Request Quote
-            </Link>
+              <div className="flex flex-col items-center justify-center gap-4 pt-4 sm:flex-row sm:gap-6 lg:justify-start">
+                <Link
+                  href="/products"
+                  className="w-full rounded-full bg-black px-8 py-3.5 text-sm font-semibold text-white shadow-xl transition-all duration-300 hover:scale-105 hover:bg-black/80 sm:w-auto"
+                >
+                  View Catalog
+                </Link>
+
+                <Link
+                  href="/inquiry"
+                  className="w-full rounded-full border border-black/20 bg-transparent px-8 py-3.5 text-sm font-semibold text-black transition-all hover:bg-black/5 sm:w-auto"
+                >
+                  Request Quote
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       <section className="relative bg-white px-4 py-24 sm:px-6 md:py-32 lg:px-8">
-        <div className="mx-auto max-w-5xl space-y-10 text-center">
+        <div className="mx-auto max-w-7xl space-y-10 text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-black/5 px-4 py-1.5 text-xs font-semibold tracking-widest text-black/70">
             <span className="h-2 w-2 animate-pulse rounded-full bg-black/40" />
             UK Trade & Wholesale Distribution
@@ -372,7 +392,22 @@ export default function UnifiedHomepageExperience() {
             supermarkets.
           </p>
 
-          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 pt-10 pb-6 text-left sm:grid-cols-3">
+          {/* Supermarket / Retail Image */}
+          <div className="mx-auto max-w-5xl pt-4">
+            <div className="relative overflow-hidden rounded-3xl border border-black/5 shadow-2xl shadow-black/10">
+              <div className="aspect-[16/9] w-full">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Woman%20customer%20shopping%20in%20modern%20grocery%20supermarket%20holding%20wire%20mesh%20shopping%20basket%20and%20smartphone%2C%20refrigerated%20shelves%20with%20beverages%20and%20food%20products%20in%20background%2C%20casual%20plaid%20shirt%2C%20bright%20clean%20retail%20store%20interior%2C%20professional%20lighting&image_size=landscape_16_9"
+                  alt="Customer shopping in modern supermarket"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+            </div>
+          </div>
+
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 pt-6 pb-6 text-left sm:grid-cols-3">
             <div className="rounded-3xl border border-black/5 bg-gray-50 p-8 shadow-sm transition-all hover:border-black/10">
               <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-black text-lg font-bold text-white">
                 1
