@@ -224,6 +224,9 @@ export default function UnifiedHomepageExperience() {
 
   return (
     <div className="w-full bg-white relative">
+      {/* Leave space for navbar */}
+      <div className="h-20 w-full bg-white" />
+      
       {/* White line to cover top gap */}
       <div className="w-full h-1 bg-white relative z-10" style={{ marginTop: '-1px' }} />
       
@@ -232,8 +235,8 @@ export default function UnifiedHomepageExperience() {
         ref={wrapperRef}
         className="relative w-full bg-white"
         style={{ 
-          height: `calc(${SCROLL_HEIGHT_VH}vh + 5rem)`, 
-          marginTop: '-5rem',
+          height: `calc(${SCROLL_HEIGHT_VH}vh)`, 
+          marginTop: '0',
           paddingTop: '0px',
           paddingBottom: '0px'
         }}
