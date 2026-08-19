@@ -48,7 +48,7 @@ export default function Navbar({ quoteCount = 0 }: NavbarProps) {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 px-2 sm:px-4 md:px-6 transition-all duration-300 pointer-events-none ${
+        className={`fixed top-0 left-0 right-0 z-[100] px-2 sm:px-4 md:px-6 transition-all duration-300 pointer-events-none ${
           isHidden ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"
         }`}
       >
@@ -56,13 +56,13 @@ export default function Navbar({ quoteCount = 0 }: NavbarProps) {
           {/* BRAND LOGO - Clean & Seamless */}
           <Link
             href="/"
-            className="flex items-center transition-transform duration-300 hover:scale-[1.03]"
+            className="relative z-10 flex items-center transition-transform duration-300 hover:scale-[1.03]"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/logo.png"
               alt="JJGM & CO Logo"
-              className="h-7 sm:h-9 md:h-10 w-auto object-contain"
+              className="h-[56px] sm:h-[50px] md:h-[50px] w-auto object-contain"
             />
           </Link>
 
@@ -74,11 +74,10 @@ export default function Navbar({ quoteCount = 0 }: NavbarProps) {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-4 py-2 text-xs md:text-sm font-semibold tracking-wide transition-all duration-200 rounded-full ${
-                    isActive
+                  className={`px-4 py-2 text-xs md:text-sm font-semibold tracking-wide transition-all duration-200 rounded-full ${isActive
                       ? "text-amber-700 bg-amber-500/10 font-bold"
                       : "text-neutral-700 hover:text-amber-600 hover:bg-neutral-100/70"
-                  }`}
+                    }`}
                 >
                   {link.name}
                 </Link>
@@ -189,11 +188,10 @@ export default function Navbar({ quoteCount = 0 }: NavbarProps) {
                     key={link.href}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`block py-3 px-4 rounded-xl font-semibold text-base transition-colors ${
-                      isActive
+                    className={`block py-3 px-4 rounded-xl font-semibold text-base transition-colors ${isActive
                         ? "text-amber-700 bg-amber-50 font-bold"
                         : "text-neutral-900 hover:bg-neutral-50"
-                    }`}
+                      }`}
                   >
                     {link.name}
                   </Link>

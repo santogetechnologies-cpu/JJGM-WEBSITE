@@ -238,17 +238,16 @@ export default function UnifiedHomepageExperience() {
       {/* Scroll-driven animation only — no overlay content */}
       <div
         ref={wrapperRef}
-        className="relative w-full bg-white"
+        className="relative w-full bg-white h-[200vh] md:h-[380vh]"
         style={{
-          height: `calc(${SCROLL_HEIGHT_VH}vh)`,
           marginTop: '0',
           paddingTop: '0px',
           paddingBottom: '0px'
         }}
       >
         {/* White mask overlays to hide top & bottom thin border lines across ALL breakpoints */}
-        <div className="absolute top-0 left-0 right-0 h-3 bg-white z-50 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 right-0 h-3 bg-white z-50 pointer-events-none" />
+        <div className="absolute top-0 left-0 right-0 h-3 bg-white z-20 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-3 bg-white z-20 pointer-events-none" />
 
         <div
           ref={containerRef}
@@ -263,8 +262,8 @@ export default function UnifiedHomepageExperience() {
           }}
         >
           {/* White mask overlays to hide subpixel lines across ALL breakpoints */}
-          <div className="absolute top-0 left-0 right-0 h-3 bg-white z-50 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 right-0 h-3 bg-white z-50 pointer-events-none" />
+          <div className="absolute top-0 left-0 right-0 h-3 bg-white z-20 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 right-0 h-3 bg-white z-20 pointer-events-none" />
 
           <canvas
             ref={canvasRef}
@@ -286,7 +285,7 @@ export default function UnifiedHomepageExperience() {
 
             {/* Text 1: Key Message - Left Side (same timing as products) */}
             <div
-              className="absolute top-[10%] left-5 right-5 sm:left-8 sm:right-auto md:top-[40%] md:left-[8%]"
+              className="absolute top-[30%] left-5 right-5 sm:left-8 sm:right-auto md:top-[40%] md:left-[8%]"
               style={{
                 opacity: getTextOpacity(0.08, 0.18, 0.32),
                 transform: `translateX(${(1 - getTextOpacity(0.08, 0.18, 0.32)) * -40}px)`,
@@ -302,7 +301,7 @@ export default function UnifiedHomepageExperience() {
 
             {/* Text 2: Product Range - Right Side Vertical (same timing as UK Trade) */}
             <div
-              className="absolute bottom-[10%] right-5 left-5 text-right sm:right-8 sm:left-auto md:top-[35%] md:bottom-auto md:right-[8%]"
+              className="absolute bottom-[30%] right-5 left-5 text-right sm:right-8 sm:left-auto md:top-[35%] md:bottom-auto md:right-[8%]"
               style={{
                 opacity: getTextOpacity(0.08, 0.18, 0.32),
                 transform: `translateX(${(1 - getTextOpacity(0.08, 0.18, 0.32)) * 40}px)`,
@@ -319,31 +318,31 @@ export default function UnifiedHomepageExperience() {
               </div>
             </div>
 
-            {/* Text 3: Value Prop - More Left */}
+            {/* Text 3: Value Prop - Upper Left (Slide 2) */}
             <div
-              className="absolute bottom-[10%] left-5 right-5 sm:left-8 sm:right-auto md:top-[30%] md:bottom-auto md:left-[6%]"
+              className="absolute top-[25%] left-[20%] max-w-[44%] sm:left-[24%] md:top-[10%] md:left-[18%] lg:left-[22%]"
               style={{
                 opacity: getTextOpacity(0.42, 0.52, 0.66),
                 transform: `translateX(${(1 - getTextOpacity(0.42, 0.52, 0.66)) * -40}px)`,
               }}
             >
-              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-black tracking-tight leading-tight">
+              <h2 className="text-xl sm:text-2xl md:text-5xl font-bold text-black tracking-tight leading-tight whitespace-nowrap">
                 Trade Pricing
               </h2>
-              <p className="text-sm sm:text-base md:text-3xl font-light text-black/60 tracking-wide mt-1">
+              <p className="text-sm sm:text-base md:text-3xl font-light text-black/60 tracking-wide mt-0.5 whitespace-nowrap">
                 Hounslow Based
               </p>
             </div>
 
-            {/* Text 4: Final Message - Bottom Right (same timing as Trade Pricing) */}
+            {/* Text 4: Final Message - Right Side (same timing as Trade Pricing) */}
             <div
-              className="absolute bottom-[10%] right-5 left-5 text-right sm:right-8 sm:left-auto md:bottom-[15%] md:right-[10%]"
+              className="absolute bottom-[20%] right-[20%] max-w-[44%] text-right sm:right-[25%] md:bottom-[15%] md:right-[20%] lg:right-[15%]"
               style={{
                 opacity: getTextOpacity(0.42, 0.52, 0.66),
                 transform: `translateX(${(1 - getTextOpacity(0.42, 0.52, 0.66)) * 40}px)`,
               }}
             >
-              <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black tracking-tight leading-tight">
+              <h2 className="text-xl sm:text-2xl md:text-5xl font-bold text-black tracking-tight leading-tight whitespace-nowrap">
                 Wholesale Excellence
               </h2>
               <p className="text-xs sm:text-base md:text-xl font-light text-black/70 tracking-wide mt-1">
@@ -368,31 +367,30 @@ export default function UnifiedHomepageExperience() {
       <div className="w-full h-1 bg-white relative z-10" style={{ marginBottom: '-1px' }} />
 
       {/* Static content — appears only after the animation section ends */}
-      <section className="relative bg-white px-4 py-24 sm:px-6 md:py-32 lg:px-8" style={{ marginTop: '-5rem', paddingTop: '8rem' }}>
+      <section className="relative bg-[#F7F5F1] px-4 pt-4 sm:pt-8 pb-6 sm:px-6 md:pt-16 md:pb-12 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="grid items-center gap-6 sm:gap-8 lg:grid-cols-2 lg:gap-16">
             {/* Image — Handshake / Partnership */}
             <div className="order-2 lg:order-1">
               <div className="relative overflow-hidden rounded-3xl border border-black/5 shadow-2xl shadow-black/10">
-                <div className="aspect-[4/3] w-full">
+                <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/images/business-partnership.jpg"
                     alt="Business partnership handshake"
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover object-center"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
               </div>
             </div>
 
             {/* Text Content */}
-            <div className="order-1 space-y-6 text-center lg:order-2 lg:text-left">
-              <div className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-black/5 px-3 py-1 text-xs font-semibold tracking-widest text-black/60">
+            <div className="order-1 space-y-4 text-center sm:space-y-6 lg:order-2 lg:text-left">
+              <div className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-black/5 px-3.5 py-1 text-xs font-semibold tracking-widest text-black/60">
                 Direct UK Trade Distribution
               </div>
 
-              <h2 className="text-4xl font-semibold tracking-tight text-black sm:text-6xl">
+              <h2 className="text-3xl font-semibold tracking-tight text-black sm:text-5xl md:text-6xl">
                 Partner With Us
               </h2>
 
@@ -400,7 +398,7 @@ export default function UnifiedHomepageExperience() {
                 Ready to elevate your product offerings with a premium selection?
               </p>
 
-              <div className="flex flex-col items-center justify-center gap-4 pt-4 sm:flex-row sm:gap-6 lg:justify-start">
+              <div className="flex flex-col items-center justify-center gap-3 pt-2 sm:flex-row sm:gap-6 lg:justify-start">
                 <Link
                   href="/products"
                   className="w-full rounded-full bg-black px-8 py-3.5 text-sm font-semibold text-white shadow-xl transition-all duration-300 hover:scale-105 hover:bg-black/80 sm:w-auto"
@@ -420,8 +418,8 @@ export default function UnifiedHomepageExperience() {
         </div>
       </section>
 
-      <section className="relative bg-white px-4 py-24 sm:px-6 md:py-32 lg:px-8">
-        <div className="mx-auto max-w-7xl space-y-10 text-center">
+      <section className="relative bg-white px-4 pt-6 pb-16 sm:px-6 md:pt-8 md:pb-20 lg:px-8">
+        <div className="mx-auto max-w-7xl space-y-6 text-center sm:space-y-8">
           <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-black/5 px-4 py-1.5 text-xs font-semibold tracking-widest text-black/70">
             <span className="h-2 w-2 animate-pulse rounded-full bg-black/40" />
             UK Trade & Wholesale Distribution
@@ -437,7 +435,7 @@ export default function UnifiedHomepageExperience() {
           </p>
 
           {/* Supermarket / Retail Image */}
-          <div className="mx-auto max-w-5xl pt-4">
+          <div className="mx-auto max-w-5xl pt-2">
             <div className="relative overflow-hidden rounded-3xl border border-black/5 shadow-2xl shadow-black/10">
               <div className="aspect-[16/9] w-full">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -451,9 +449,9 @@ export default function UnifiedHomepageExperience() {
             </div>
           </div>
 
-          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 pt-6 pb-6 text-left sm:grid-cols-3">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 text-left sm:grid-cols-3">
             <div className="rounded-3xl border border-black/5 bg-gray-50 p-8 shadow-sm transition-all hover:border-black/10">
-              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-black text-lg font-bold text-white">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-black text-lg font-bold text-white">
                 1
               </div>
               <h3 className="mb-3 text-xl font-semibold text-black">
@@ -466,7 +464,7 @@ export default function UnifiedHomepageExperience() {
             </div>
 
             <div className="rounded-3xl border border-black/5 bg-gray-50 p-8 shadow-sm transition-all hover:border-black/10">
-              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-black text-lg font-bold text-white">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-black text-lg font-bold text-white">
                 2
               </div>
               <h3 className="mb-3 text-xl font-semibold text-black">
@@ -479,7 +477,7 @@ export default function UnifiedHomepageExperience() {
             </div>
 
             <div className="rounded-3xl border border-black/5 bg-gray-50 p-8 shadow-sm transition-all hover:border-black/10">
-              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-black text-lg font-bold text-white">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-black text-lg font-bold text-white">
                 3
               </div>
               <h3 className="mb-3 text-xl font-semibold text-black">
@@ -492,7 +490,7 @@ export default function UnifiedHomepageExperience() {
             </div>
           </div>
 
-          <div className="flex flex-col items-center justify-center gap-4 pt-8 sm:flex-row sm:gap-6">
+          <div className="flex flex-col items-center justify-center gap-4 pt-2 sm:flex-row sm:gap-6">
             <Link
               href="/products"
               className="w-full rounded-full bg-black px-10 py-4 text-base font-semibold text-white shadow-xl transition-all duration-300 hover:scale-105 hover:bg-black/80 sm:w-auto"
