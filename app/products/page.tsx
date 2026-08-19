@@ -73,13 +73,21 @@ export default function ProductsPage() {
       <section className="relative py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-amber-50 via-white to-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div className="relative h-[350px] rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-100 to-gray-50 flex items-center justify-center border border-black/5">
-              <div className="text-center p-8">
-                <svg className="w-32 h-32 mx-auto text-amber-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-                </svg>
-                <h3 className="text-3xl font-black text-black mb-2">Stocked & Ready</h3>
-                <p className="text-black/70 text-sm">Fast wholesale delivery from Hounslow</p>
+            <div className="relative h-[380px] sm:h-[420px] rounded-3xl overflow-hidden shadow-2xl bg-white flex flex-col justify-between border border-black/5 p-4 sm:p-5 group">
+              {/* Large prominent visual container occupying ~70% card height */}
+              <div className="relative w-full h-[250px] sm:h-[280px] overflow-hidden rounded-2xl bg-stone-50 flex items-center justify-center">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/mixed-nuts-bowl.jpg"
+                  alt="Stocked & Ready Mixed Nuts"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+
+              {/* Text area with clean, balanced spacing */}
+              <div className="text-center pt-3 pb-1">
+                <h3 className="text-2xl sm:text-3xl font-black text-black mb-1">Stocked & Ready</h3>
+                <p className="text-black/70 text-xs sm:text-sm font-medium">Fast wholesale delivery from Hounslow</p>
               </div>
             </div>
 
@@ -112,19 +120,19 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* Filter and Search Bar */}
-      <section className="py-6 px-4 sm:px-6 lg:px-8 sticky top-20 z-40 bg-white/95 backdrop-blur-md border-b border-black/5">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          {/* Horizontally scrollable filter buttons on mobile */}
-          <div className="w-full md:w-auto overflow-x-auto scrollbar-hide">
-            <div className="flex items-center gap-2 pb-2 md:pb-0 min-w-max md:min-w-0">
+      {/* Category Filter and Search Bar Section — Normal Page Flow */}
+      <section className="my-6 py-5 px-4 sm:px-6 lg:px-8 bg-[#FAFAF8] border-y border-stone-200/80 relative z-10">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 md:gap-6">
+          {/* Horizontally scrollable category filter buttons */}
+          <div className="w-full md:w-auto overflow-x-auto scrollbar-hide py-1">
+            <div className="flex items-center gap-2 min-w-max">
               {categories.map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 whitespace-nowrap ${selectedCategory === cat
-                      ? "bg-amber-500 text-black shadow-md shadow-amber-500/20"
-                      : "bg-black/5 text-black/70 hover:bg-black/10 hover:text-black border border-black/10"
+                  className={`px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 whitespace-nowrap ${selectedCategory === cat
+                      ? "bg-amber-500 text-black shadow-md shadow-amber-500/20 scale-[1.02]"
+                      : "bg-white text-stone-700 hover:bg-stone-100 hover:text-black border border-stone-200/80"
                     }`}
                 >
                   {cat}
@@ -133,16 +141,17 @@ export default function ProductsPage() {
             </div>
           </div>
 
-          <div className="relative w-full md:w-80">
+          {/* Search Bar Input */}
+          <div className="relative w-full md:w-80 shrink-0">
             <input
               type="text"
               placeholder="Search 100+ products..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-black/10 rounded-xl text-sm text-black placeholder-black/40 focus:outline-none focus:border-amber-500 transition-colors"
+              className="w-full pl-10 pr-4 py-2.5 bg-white border border-stone-200/80 rounded-xl text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors shadow-xs"
             />
             <svg
-              className="w-4 h-4 text-black/40 absolute left-3.5 top-3.5"
+              className="w-4 h-4 text-stone-400 absolute left-3.5 top-3.5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -158,8 +167,8 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* Catalog Grid Section */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      {/* Catalog Grid Section — Standard Normal Flow */}
+      <section className="py-8 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="flex items-center justify-between pb-6 border-b border-black/5">
           <p className="text-sm text-black/60">
             Showing <strong className="text-amber-700">{filteredProducts.length}</strong> of {PRODUCTS.length} products
@@ -189,7 +198,7 @@ export default function ProductsPage() {
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pt-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 pt-6 sm:pt-8">
             {filteredProducts.map((product) => (
               <ProductCard
                 key={product.id}

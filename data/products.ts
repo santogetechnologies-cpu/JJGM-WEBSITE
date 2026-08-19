@@ -315,142 +315,6 @@ export const PRODUCTS: Product[] = [
     badge: "Wholesale Value"
   },
   {
-    id: "prod-37",
-    name: "Ginni's Bumper Snack Assortment 01",
-    category: "Savoury & Crisps",
-    image: "/products/imghunt_co_20260811_bumper_box_1.webp",
-    description: "Variety counter pack with mixed nuts, popcorn, and savouries.",
-    packageSize: "24 Units"
-  },
-  {
-    id: "prod-38",
-    name: "Ginni's Bumper Snack Assortment 02",
-    category: "Savoury & Crisps",
-    image: "/products/imghunt_co_20260811_bumper_box_2.webp",
-    description: "Pub and convenience store snack pack bundle.",
-    packageSize: "24 Units"
-  },
-  {
-    id: "prod-39",
-    name: "Ginni's Bumper Snack Assortment 03",
-    category: "Savoury & Crisps",
-    image: "/products/imghunt_co_20260811_bumper_box_3.webp",
-    description: "High-margin retail display box of savoury bites.",
-    packageSize: "24 Units"
-  },
-  {
-    id: "prod-40",
-    name: "Ginni's Bumper Snack Assortment 04",
-    category: "Savoury & Crisps",
-    image: "/products/imghunt_co_20260811_bumper_box_4.webp",
-    description: "Roasted nut selection retail display unit.",
-    packageSize: "20 Units"
-  },
-  {
-    id: "prod-41",
-    name: "Ginni's Bumper Snack Assortment 05",
-    category: "Savoury & Crisps",
-    image: "/products/imghunt_co_20260811_bumper_box_5.webp",
-    description: "Sweet and savoury mixed snack display box.",
-    packageSize: "20 Units"
-  },
-  {
-    id: "prod-42",
-    name: "Ginni's Bumper Snack Assortment 06",
-    category: "Savoury & Crisps",
-    image: "/products/imghunt_co_20260811_bumper_box_6.webp",
-    description: "Popcorn and corn snack counter display unit.",
-    packageSize: "24 Units"
-  },
-  {
-    id: "prod-43",
-    name: "Ginni's Bumper Snack Assortment 07",
-    category: "Savoury & Crisps",
-    image: "/products/imghunt_co_20260811_bumper_box_7.webp",
-    description: "Single-serve impulse snack display unit.",
-    packageSize: "36 Units"
-  },
-  {
-    id: "prod-44",
-    name: "Ginni's Bumper Snack Assortment 08",
-    category: "Savoury & Crisps",
-    image: "/products/imghunt_co_20260811_bumper_box_8.webp",
-    description: "Spicy savoury nibbles display box.",
-    packageSize: "24 Units"
-  },
-  {
-    id: "prod-45",
-    name: "Ginni's Bumper Snack Assortment 09",
-    category: "Savoury & Crisps",
-    image: "/products/imghunt_co_20260811_bumper_box_9.webp",
-    description: "Traditional pub card snack selection.",
-    packageSize: "24 Units"
-  },
-  {
-    id: "prod-46",
-    name: "Ginni's Bumper Snack Assortment 10",
-    category: "Savoury & Crisps",
-    image: "/products/imghunt_co_20260811_bumper_box_10.webp",
-    description: "Crunchy corn and cracker snack display unit.",
-    packageSize: "24 Units"
-  },
-  {
-    id: "prod-47",
-    name: "Ginni's Bumper Snack Assortment 11",
-    category: "Savoury & Crisps",
-    image: "/products/imghunt_co_20260811_bumper_box_11.webp",
-    description: "Premium fruit & nut energy snack display box.",
-    packageSize: "20 Units"
-  },
-  {
-    id: "prod-48",
-    name: "Ginni's Bumper Snack Assortment 12",
-    category: "Savoury & Crisps",
-    image: "/products/imghunt_co_20260811_bumper_box_12.webp",
-    description: "Bacon & pork crunch card display set.",
-    packageSize: "20 Units"
-  },
-  {
-    id: "prod-49",
-    name: "Ginni's Bumper Snack Assortment 13",
-    category: "Savoury & Crisps",
-    image: "/products/imghunt_co_20260811_bumper_box_13.webp",
-    description: "Salted peanuts & cashew cards.",
-    packageSize: "24 Units"
-  },
-  {
-    id: "prod-50",
-    name: "Ginni's Bumper Snack Assortment 14",
-    category: "Savoury & Crisps",
-    image: "/products/imghunt_co_20260811_bumper_box_14.webp",
-    description: "Mini savoury snack packets.",
-    packageSize: "36 Units"
-  },
-  {
-    id: "prod-51",
-    name: "Ginni's Bumper Snack Assortment 15",
-    category: "Savoury & Crisps",
-    image: "/products/imghunt_co_20260811_bumper_box_15.webp",
-    description: "Compact checkout impulse display pack.",
-    packageSize: "48 Units"
-  },
-  {
-    id: "prod-52",
-    name: "Ginni's Gourmet Snack Icon Collection",
-    category: "Savoury & Crisps",
-    image: "/products/imghunt_co_20260811_favicon_1.webp",
-    description: "Compact high-turnover retail bag line.",
-    packageSize: "24 x 50g"
-  },
-  {
-    id: "prod-53",
-    name: "JJGM & CO Snack Master Collection",
-    category: "Savoury & Crisps",
-    image: "/products/imghunt_co_20260811_favicon.webp",
-    description: "Wholesale distributor specialty snack selection.",
-    packageSize: "Multi-Pack"
-  },
-  {
     id: "prod-54",
     name: "Ginni's Honey Roasted Mustard Peanuts",
     category: "Nuts & Roasted",
@@ -527,7 +391,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "prod-63",
-    name: "Tago Gingerbread with Plum Filling (14x180g)",
+    name: "Tago Gingerbread with Plum Filling",
     category: "Wafers & Bakery",
     image: "/products/imghunt_co_20260811_tago_ginger_bread_with_plum_14x180g_7455.jpeg",
     description: "Soft spiced gingerbread hearts filled with rich plum jam fruit center.",
@@ -536,7 +400,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "prod-64",
-    name: "Tago Glazed Gingerbread Hearts (14x160g)",
+    name: "Tago Glazed Gingerbread Hearts",
     category: "Wafers & Bakery",
     image: "/products/imghunt_co_20260811_tago_gingerbread_glazed_hearts_14x160g_5693.jpeg",
     description: "Sugar glazed gingerbread biscuits crafted with cinnamon and cloves.",
@@ -674,22 +538,6 @@ export const PRODUCTS: Product[] = [
     packageSize: "12 x 300g"
   },
   {
-    id: "prod-81",
-    name: "Toasted Giant Corn - Chili & Lemon Flavour",
-    category: "Savoury & Crisps",
-    image: "/products/imghunt_co_20260811_toasted_corn_chilli_and_lemon_flavour.webp",
-    description: "Large toasted corn kernels tossed in spicy red chili and natural lime.",
-    packageSize: "15 x 200g"
-  },
-  {
-    id: "prod-82",
-    name: "Toasted Giant Corn - Natural Sea Salt",
-    category: "Savoury & Crisps",
-    image: "/products/imghunt_co_20260811_toasted_corn_natural.webp",
-    description: "Natural toasted corn, lightly salted for a rich satisfying crunch.",
-    packageSize: "15 x 200g"
-  },
-  {
     id: "prod-83",
     name: "JJGM & CO Vegan Friendly Roasted Nut Mix",
     category: "Nuts & Roasted",
@@ -706,14 +554,6 @@ export const PRODUCTS: Product[] = [
     description: "Vegan certified crunchy spiced snack selection.",
     packageSize: "16 x 150g",
     badge: "100% Vegan"
-  },
-  {
-    id: "prod-85",
-    name: "JJGM & CO Jumbo Whole Roasted Cashews",
-    category: "Nuts & Roasted",
-    image: "/products/productimage_2021_06_07t102823_765.webp",
-    description: "Extra large whole grade cashews roasted in clean oil and salted.",
-    packageSize: "12 x 200g"
   },
   {
     id: "prod-86",
@@ -769,59 +609,11 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "prod-92",
-    name: "Sweet Candy Selection Pack 01",
+    name: "Sweet Candy Selection Pack",
     category: "Confectionery & Sweets",
     image: "/products/images_1.jpg",
     description: "Fruity gummies and sweet candies assortment.",
     packageSize: "24 x 100g"
-  },
-  {
-    id: "prod-93",
-    name: "Sweet Candy Selection Pack 02",
-    category: "Confectionery & Sweets",
-    image: "/products/images_2.jpg",
-    description: "Sour candy belts and chewy fruit bites.",
-    packageSize: "24 x 100g"
-  },
-  {
-    id: "prod-94",
-    name: "Sweet Candy Selection Pack 03",
-    category: "Confectionery & Sweets",
-    image: "/products/images_3.jpg",
-    description: "Classic jelly sweets in impulse counter bags.",
-    packageSize: "24 x 100g"
-  },
-  {
-    id: "prod-95",
-    name: "Sweet Candy Selection Pack 04",
-    category: "Confectionery & Sweets",
-    image: "/products/images_4.jpg",
-    description: "Assorted liquorice and fruit candy bites.",
-    packageSize: "20 x 120g"
-  },
-  {
-    id: "prod-96",
-    name: "Sweet Candy Selection Pack 05",
-    category: "Confectionery & Sweets",
-    image: "/products/images_5.jpg",
-    description: "Mini sweet treats bag.",
-    packageSize: "30 x 50g"
-  },
-  {
-    id: "prod-97",
-    name: "Sweet Candy Selection Pack 06",
-    category: "Confectionery & Sweets",
-    image: "/products/images_6.jpg",
-    description: "Soft marshmallow and foam sweets.",
-    packageSize: "20 x 100g"
-  },
-  {
-    id: "prod-98",
-    name: "Sweet Candy Selection Pack 07",
-    category: "Confectionery & Sweets",
-    image: "/products/images_7.jpg",
-    description: "Sugar coated jelly fruit slices.",
-    packageSize: "20 x 120g"
   },
   {
     id: "prod-99",
