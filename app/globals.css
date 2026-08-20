@@ -22,6 +22,16 @@ body {
   box-sizing: border-box;
 }
 
+/* Strictly hide mobile hero artwork on all desktop / tablet breakpoints */
+@media (min-width: 768px) {
+  .mobile-only-hero-artwork {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+}
+
 /* Eliminate gaps around animation canvas */
 main {
   background-color: #ffffff !important;

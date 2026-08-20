@@ -31,6 +31,48 @@ function getLoadedImage(
   return null;
 }
 
+function LeafSprig({ className = "", flip = false }: { className?: string; flip?: boolean }) {
+  return (
+    <svg
+      viewBox="0 0 60 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={`w-9 h-4 sm:w-11 sm:h-5 text-[#163820] shrink-0 ${flip ? "-scale-x-100" : ""} ${className}`}
+    >
+      {/* Central horizontal stem */}
+      <path
+        d="M2 10H52"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+      {/* Terminal tip leaf */}
+      <path
+        d="M58 10C52 7.5 45 8.2 43 10C45 11.8 52 12.5 58 10Z"
+        fill="currentColor"
+      />
+      {/* Outer pair of leaves */}
+      <path
+        d="M40 10C36 4.5 27 4.5 24 9C29 9 36 9.8 40 10Z"
+        fill="currentColor"
+      />
+      <path
+        d="M40 10C36 15.5 27 15.5 24 11C29 11 36 10.2 40 10Z"
+        fill="currentColor"
+      />
+      {/* Inner pair of leaves */}
+      <path
+        d="M25 10C21 5.5 13 5.5 10 9C15 9 21 9.8 25 10Z"
+        fill="currentColor"
+      />
+      <path
+        d="M25 10C21 14.5 13 14.5 10 11C15 11 21 10.2 25 10Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
 export default function UnifiedHomepageExperience() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -61,6 +103,9 @@ export default function UnifiedHomepageExperience() {
     ): { x: number; y: number; w: number; h: number } => {
       const imgRatio = img.naturalWidth / img.naturalHeight;
       const viewRatio = width / height;
+      const isMobile = width < 768;
+      // On mobile only, shift the almond slightly down (+4% viewport height)
+      const mobileYShift = isMobile ? Math.round(height * 0.04) : 0;
 
       // Use contain mode to maintain original size (not zoomed)
       if (viewRatio > imgRatio) {
@@ -68,7 +113,7 @@ export default function UnifiedHomepageExperience() {
         const drawWidth = height * imgRatio;
         return {
           x: (width - drawWidth) / 2,
-          y: 0,
+          y: mobileYShift,
           w: drawWidth,
           h: drawHeight,
         };
@@ -78,7 +123,7 @@ export default function UnifiedHomepageExperience() {
       const drawHeight = width / imgRatio;
       return {
         x: 0,
-        y: (height - drawHeight) / 2,
+        y: (height - drawHeight) / 2 + mobileYShift,
         w: drawWidth,
         h: drawHeight,
       };
@@ -265,9 +310,46 @@ export default function UnifiedHomepageExperience() {
           <div className="absolute top-0 left-0 right-0 h-3 bg-white z-20 pointer-events-none" />
           <div className="absolute bottom-0 left-0 right-0 h-3 bg-white z-20 pointer-events-none" />
 
+          {/* ─── LAYER 1: MOBILE-ONLY BACKGROUND ARTWORK (Green Brush Circle + Centered "Taste. Quality. Value.") ─── */}
+          <div
+            className="mobile-only-hero-artwork block md:hidden absolute inset-0 z-0 pointer-events-none transition-opacity duration-150"
+            style={{
+              opacity: scrollProgress > 0.08 ? 0 : Math.max(0, 1 - scrollProgress / 0.07),
+              transform: `translateY(${-scrollProgress * 80}px)`,
+              pointerEvents: 'none',
+            }}
+          >
+            {/* Green Brush Circle + Typography positioned in upper-middle area BEHIND the almond */}
+            <div className="absolute top-[-5%] sm:top-[-3%] left-1/2 -translate-x-1/2 w-[90vw] max-w-[380px] aspect-[682/1024] flex items-center justify-center pointer-events-none">
+              {/* Green Brush Circle Asset */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/brush-circle.png"
+                alt="Decorative green brush circle"
+                className="w-full h-full object-contain pointer-events-none select-none"
+              />
+
+              {/* Typography Block with comfortable breathing room below the top brush stroke */}
+              <div className="absolute inset-x-0 top-[27%] sm:top-[25%] flex flex-col items-center justify-start pointer-events-none">
+                <div className="flex flex-col text-left space-y-0.5 select-none pl-2">
+                  <span className="font-serif text-[40px] sm:text-[44px] text-[#163820] leading-[1.08] tracking-tight font-normal">
+                    Taste.
+                  </span>
+                  <span className="font-serif text-[40px] sm:text-[44px] text-[#163820] leading-[1.08] tracking-tight font-normal -ml-2.5">
+                    Quality.
+                  </span>
+                  <span className="font-serif text-[40px] sm:text-[44px] text-[#BC531A] leading-[1.08] tracking-tight font-normal pl-1">
+                    Value.
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* ─── LAYER 2: ANIMATED ALMOND CANVAS (IN FRONT OF GREEN CIRCLE) ─── */}
           <canvas
             ref={canvasRef}
-            className="absolute inset-0 block h-full w-full bg-white"
+            className="absolute inset-0 block h-full w-full bg-white z-10 mix-blend-multiply md:mix-blend-normal"
             style={{
               margin: '0',
               padding: '0',
@@ -280,74 +362,97 @@ export default function UnifiedHomepageExperience() {
             aria-hidden="true"
           />
 
-          {/* Scroll-triggered animated text overlays - completely redesigned */}
-          <div className="absolute inset-0 pointer-events-none">
+          {/* ─── LAYER 3: FOREGROUND OVERLAYS (JJGM & CO Leaf Footer + Animated Text Overlays) ─── */}
+          <div className="absolute inset-0 z-20 pointer-events-none">
 
-            {/* Text 1: Key Message - Left Side (same timing as products) */}
+            {/* Mobile JJGM & CO Leaf Footer (Moved Upward from bottom edge) */}
             <div
-              className="absolute top-[30%] left-5 right-5 sm:left-8 sm:right-auto md:top-[40%] md:left-[8%]"
+              className="mobile-only-hero-artwork block md:hidden absolute inset-0 pointer-events-none transition-opacity duration-150"
               style={{
-                opacity: getTextOpacity(0.08, 0.18, 0.32),
-                transform: `translateX(${(1 - getTextOpacity(0.08, 0.18, 0.32)) * -40}px)`,
+                opacity: scrollProgress > 0.08 ? 0 : Math.max(0, 1 - scrollProgress / 0.07),
+                transform: `translateY(${-scrollProgress * 80}px)`,
+                pointerEvents: 'none',
               }}
             >
-              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-black tracking-tight leading-tight">
-                UK Trade
-              </h2>
-              <p className="text-sm sm:text-base md:text-3xl font-light text-black/60 tracking-wide mt-1">
-                100+ Products
-              </p>
-            </div>
-
-            {/* Text 2: Product Range - Right Side Vertical (same timing as UK Trade) */}
-            <div
-              className="absolute bottom-[30%] right-5 left-5 text-right sm:right-8 sm:left-auto md:top-[35%] md:bottom-auto md:right-[8%]"
-              style={{
-                opacity: getTextOpacity(0.08, 0.18, 0.32),
-                transform: `translateX(${(1 - getTextOpacity(0.08, 0.18, 0.32)) * 40}px)`,
-              }}
-            >
-              <div className="text-xl sm:text-2xl md:text-4xl font-semibold text-black tracking-tight leading-snug">
-                Nuts
-              </div>
-              <div className="text-xl sm:text-2xl md:text-4xl font-semibold text-black tracking-tight leading-snug mt-0.5">
-                Wafers
-              </div>
-              <div className="text-xl sm:text-2xl md:text-4xl font-semibold text-black tracking-tight leading-snug mt-0.5">
-                Confectionery
+              <div className="absolute bottom-[10%] sm:bottom-[12%] left-1/2 -translate-x-1/2 flex items-center justify-center gap-3 sm:gap-4 w-full px-4 pointer-events-none">
+                <LeafSprig />
+                <span className="font-serif font-black text-xl sm:text-2xl tracking-[0.22em] text-[#163820] uppercase whitespace-nowrap select-none">
+                  JJGM & CO
+                </span>
+                <LeafSprig flip />
               </div>
             </div>
 
-            {/* Text 3: Value Prop - Upper Left (Slide 2) */}
-            <div
-              className="absolute top-[25%] left-[20%] max-w-[44%] sm:left-[24%] md:top-[10%] md:left-[18%] lg:left-[22%]"
-              style={{
-                opacity: getTextOpacity(0.42, 0.52, 0.66),
-                transform: `translateX(${(1 - getTextOpacity(0.42, 0.52, 0.66)) * -40}px)`,
-              }}
-            >
-              <h2 className="text-xl sm:text-2xl md:text-5xl font-bold text-black tracking-tight leading-tight whitespace-nowrap">
-                Trade Pricing
-              </h2>
-              <p className="text-sm sm:text-base md:text-3xl font-light text-black/60 tracking-wide mt-0.5 whitespace-nowrap">
-                Hounslow Based
-              </p>
-            </div>
+            {/* ─── ORIGINAL ANIMATED TEXT OVERLAYS (STRICTLY PRESERVED & VISIBLE ON ALL BREAKPOINTS) ─── */}
+            <div className="absolute inset-0 pointer-events-none">
 
-            {/* Text 4: Final Message - Right Side (same timing as Trade Pricing) */}
-            <div
-              className="absolute bottom-[20%] right-[20%] max-w-[44%] text-right sm:right-[25%] md:bottom-[15%] md:right-[20%] lg:right-[15%]"
-              style={{
-                opacity: getTextOpacity(0.42, 0.52, 0.66),
-                transform: `translateX(${(1 - getTextOpacity(0.42, 0.52, 0.66)) * 40}px)`,
-              }}
-            >
-              <h2 className="text-xl sm:text-2xl md:text-5xl font-bold text-black tracking-tight leading-tight whitespace-nowrap">
-                Wholesale Excellence
-              </h2>
-              <p className="text-xs sm:text-base md:text-xl font-light text-black/70 tracking-wide mt-1">
-                Trusted by UK Retailers
-              </p>
+              {/* Text 1: Key Message - Left Side (Timing: 0.08 -> 0.32) */}
+              <div
+                className="absolute top-[26%] sm:top-[28%] left-4 sm:left-6 md:top-[40%] md:left-[8%]"
+                style={{
+                  opacity: getTextOpacity(0.08, 0.18, 0.32),
+                  transform: `translateX(${(1 - getTextOpacity(0.08, 0.18, 0.32)) * -40}px)`,
+                }}
+              >
+                <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-black tracking-tight leading-tight">
+                  UK Trade
+                </h2>
+                <p className="text-sm sm:text-base md:text-3xl font-light text-black/60 tracking-wide mt-1">
+                  100+ Products
+                </p>
+              </div>
+
+              {/* Text 2: Product Range - Right Side Vertical (Timing: 0.08 -> 0.32) */}
+              <div
+                className="absolute top-[72%] sm:top-[72%] right-4 sm:right-6 text-right md:top-[35%] md:right-[8%]"
+                style={{
+                  opacity: getTextOpacity(0.08, 0.18, 0.32),
+                  transform: `translateX(${(1 - getTextOpacity(0.08, 0.18, 0.32)) * 40}px)`,
+                }}
+              >
+                <div className="text-lg sm:text-xl md:text-4xl font-semibold text-black tracking-tight leading-snug">
+                  Nuts
+                </div>
+                <div className="text-lg sm:text-xl md:text-4xl font-semibold text-black tracking-tight leading-snug mt-1">
+                  Wafers
+                </div>
+                <div className="text-lg sm:text-xl md:text-4xl font-semibold text-black tracking-tight leading-snug mt-1">
+                  Confectionery
+                </div>
+              </div>
+
+              {/* Text 3: Value Prop - Upper Left (Slide 2, Timing: 0.42 -> 0.66) */}
+              <div
+                className="absolute top-[18%] left-5 sm:left-8 md:top-[10%] md:left-[18%] lg:left-[22%] max-w-[80%] md:max-w-[44%]"
+                style={{
+                  opacity: getTextOpacity(0.42, 0.52, 0.66),
+                  transform: `translateX(${(1 - getTextOpacity(0.42, 0.52, 0.66)) * -40}px)`,
+                }}
+              >
+                <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-black tracking-tight leading-tight whitespace-nowrap">
+                  Trade Pricing
+                </h2>
+                <p className="text-sm sm:text-base md:text-3xl font-light text-black/60 tracking-wide mt-0.5 whitespace-nowrap">
+                  Hounslow Based
+                </p>
+              </div>
+
+              {/* Text 4: Final Message - Right Side (Timing: 0.42 -> 0.66) */}
+              <div
+                className="absolute bottom-[18%] right-5 sm:right-8 md:bottom-[15%] md:right-[20%] lg:right-[15%] max-w-[80%] md:max-w-[44%] text-right"
+                style={{
+                  opacity: getTextOpacity(0.42, 0.52, 0.66),
+                  transform: `translateX(${(1 - getTextOpacity(0.42, 0.52, 0.66)) * 40}px)`,
+                }}
+              >
+                <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-black tracking-tight leading-tight whitespace-nowrap">
+                  Wholesale Excellence
+                </h2>
+                <p className="text-xs sm:text-sm md:text-xl font-light text-black/70 tracking-wide mt-1">
+                  Trusted by UK Retailers
+                </p>
+              </div>
+
             </div>
 
           </div>
@@ -373,7 +478,7 @@ export default function UnifiedHomepageExperience() {
 
         <div className="mx-auto max-w-7xl relative z-10">
           <div className="grid items-center gap-10 sm:gap-12 lg:grid-cols-12 lg:gap-16">
-            
+
             {/* Left Image — Dominant, Clean Rounded Container */}
             <div className="order-1 lg:col-span-6">
               <div className="relative overflow-hidden rounded-3xl lg:rounded-[28px] border border-stone-200/80 shadow-xl shadow-stone-900/5 bg-stone-100 group">
@@ -390,7 +495,7 @@ export default function UnifiedHomepageExperience() {
 
             {/* Right Text Content — Strong Hierarchy & Generous Whitespace */}
             <div className="order-2 lg:col-span-6 space-y-6 text-left">
-              
+
               {/* Top Refined Pill Badge */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 text-xs font-bold uppercase tracking-widest shadow-2xs">
                 <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
@@ -442,7 +547,7 @@ export default function UnifiedHomepageExperience() {
         <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-amber-500/[0.03] blur-3xl rounded-full pointer-events-none" />
 
         <div className="mx-auto max-w-7xl relative z-10 space-y-12 sm:space-y-14">
-          
+
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 text-xs font-bold uppercase tracking-widest shadow-2xs">
@@ -461,7 +566,7 @@ export default function UnifiedHomepageExperience() {
 
           {/* Editorial Asymmetric Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6">
-            
+
             {/* ROW 1: Card 1 — Nuts & Roasted (approx 60% / 7 cols) */}
             <Link
               href="/products"
