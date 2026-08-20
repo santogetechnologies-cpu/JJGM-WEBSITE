@@ -22,6 +22,16 @@ body {
   box-sizing: border-box;
 }
 
+/* Strictly hide mobile hero artwork on all desktop / tablet breakpoints */
+@media (min-width: 768px) {
+  .mobile-only-hero-artwork {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+}
+
 /* Eliminate gaps around animation canvas */
 main {
   background-color: #ffffff !important;
@@ -76,4 +86,19 @@ canvas {
 
 .animate-slideIn {
   animation: slideIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }

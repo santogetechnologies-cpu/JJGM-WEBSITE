@@ -31,76 +31,87 @@ export default function InquiryPage() {
   };
 
   return (
-    <main className="bg-white min-h-screen text-black pb-24">
-      {/* Banner */}
-      <section className="pt-28 pb-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 via-white to-white border-b border-black/5 text-center">
-        <div className="max-w-4xl mx-auto space-y-4">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-700 text-xs font-bold uppercase tracking-widest border border-amber-500/20">
-            Trade Quote Builder
-          </span>
-          <h1 className="text-4xl md:text-5xl font-black tracking-tight text-black">
-            Build Your Wholesale Quote
+    <main className="bg-[#FCFAF6] min-h-screen text-stone-900 pb-24">
+      {/* Page Hero / Banner — Generous clearance below fixed floating navbar */}
+      <section className="pt-32 sm:pt-36 md:pt-40 pb-10 sm:pb-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#F7F4EE] via-[#FCFAF6] to-[#FCFAF6] border-b border-stone-200/50 text-center">
+        <div className="max-w-3xl mx-auto space-y-4">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 text-xs font-bold uppercase tracking-widest shadow-2xs">
+            <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+            <span>Trade Quote Builder</span>
+          </div>
+
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-stone-950 leading-[1.08]">
+            Build Your <span className="text-amber-600">Wholesale Quote</span>
           </h1>
-          <p className="text-black/60 text-sm md:text-base">
+
+          <p className="text-stone-600 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-normal">
             Select products, specify quantities, and get competitive trade pricing from JJGM & CO.
           </p>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+      {/* Main Content Area */}
+      <section className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
         {submitted ? (
-          <div className="py-20 text-center space-y-6 bg-gradient-to-b from-gray-50 to-white rounded-3xl border border-amber-500/30 p-8 max-w-2xl mx-auto shadow-lg">
-            <div className="w-16 h-16 bg-amber-500 text-white rounded-full flex items-center justify-center mx-auto text-2xl font-black">
+          <div className="py-16 text-center space-y-5 bg-white rounded-[28px] border border-amber-500/30 p-8 sm:p-12 max-w-2xl mx-auto shadow-[0_4px_24px_rgba(0,0,0,0.03)]">
+            <div className="w-16 h-16 bg-amber-500 text-stone-950 rounded-2xl flex items-center justify-center mx-auto text-2xl font-black shadow-md shadow-amber-500/20">
               ✓
             </div>
-            <h2 className="text-3xl font-extrabold text-black">Quote Request Sent!</h2>
-            <p className="text-gray-700 text-sm leading-relaxed">
-              Your wholesale pricing request for <strong>{selectedProducts.length} items</strong> has been submitted to <strong>{COMPANY_DETAILS.name}</strong>. Founder {COMPANY_DETAILS.founderFormatted} will review your order requirements and send trade pricing to your contact details.
+            <h2 className="text-3xl font-extrabold text-stone-950 tracking-tight">Quote Request Sent!</h2>
+            <p className="text-stone-600 text-sm leading-relaxed max-w-md mx-auto">
+              Your wholesale pricing request for <strong className="text-stone-900">{selectedProducts.length} items</strong> has been submitted to <strong className="text-stone-900">{COMPANY_DETAILS.name}</strong>. Founder {COMPANY_DETAILS.founderFormatted} will review your order requirements and send trade pricing to your contact details.
             </p>
-            <div className="p-4 bg-amber-50 rounded-xl text-xs text-amber-900 border border-amber-200">
-              Direct Contact: {COMPANY_DETAILS.phone} | {COMPANY_DETAILS.email}
+            <div className="p-4 bg-[#FAF7F2] rounded-2xl text-xs text-stone-700 border border-stone-200/80 font-medium">
+              Direct Contact: <strong className="text-amber-700">{COMPANY_DETAILS.phone}</strong> | <strong className="text-amber-700">{COMPANY_DETAILS.email}</strong>
             </div>
-            <Link
-              href="/products"
-              className="inline-block px-8 py-3 bg-amber-500 text-white font-extrabold text-xs uppercase tracking-widest rounded-xl hover:bg-amber-600 transition-all"
-            >
-              Return to Catalog
-            </Link>
+            <div className="pt-2">
+              <Link
+                href="/products"
+                className="inline-block px-8 py-3.5 bg-stone-950 text-white font-extrabold text-xs uppercase tracking-widest rounded-xl hover:bg-stone-800 transition-all shadow-sm"
+              >
+                Return to Catalog
+              </Link>
+            </div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-start">
 
-            {/* Product List */}
-            <div className="lg:col-span-2 space-y-4">
-              <div className="flex items-center justify-between pb-2">
-                <h2 className="text-xl font-bold text-black">Your Quote Basket ({selectedProducts.length})</h2>
-                <Link href="/products" className="text-xs text-amber-600 hover:text-amber-700 font-semibold hover:underline">
-                  + Add More Products
+            {/* Left Column: Product List */}
+            <div className="lg:col-span-7 space-y-4">
+              <div className="flex items-center justify-between pb-1">
+                <h2 className="text-xl sm:text-2xl font-extrabold text-stone-950 tracking-tight">
+                  Your Quote Basket <span className="text-amber-600">({selectedProducts.length})</span>
+                </h2>
+                <Link
+                  href="/products"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-amber-700 hover:text-amber-800 uppercase tracking-wider bg-amber-500/10 px-3 py-1.5 rounded-full border border-amber-500/20 transition-colors"
+                >
+                  <span>+ Add More Products</span>
                 </Link>
               </div>
 
               {selectedProducts.length === 0 ? (
-                <div className="py-16 text-center bg-gray-50 rounded-2xl border border-gray-200 space-y-4 p-6">
-                  <p className="text-gray-600 text-sm">Your quote basket is currently empty.</p>
+                <div className="py-16 text-center bg-white rounded-[22px] border border-stone-200/80 space-y-4 p-8 shadow-xs">
+                  <p className="text-stone-600 text-sm font-medium">Your quote basket is currently empty.</p>
                   <Link
                     href="/products"
-                    className="inline-block px-6 py-2.5 bg-amber-500 text-white font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-amber-600 transition-colors"
+                    className="inline-block px-7 py-3 bg-amber-500 text-stone-950 font-extrabold text-xs uppercase tracking-widest rounded-xl hover:bg-amber-400 transition-colors shadow-md shadow-amber-500/20"
                   >
                     Browse 100+ Products
                   </Link>
                 </div>
               ) : (
-                <div className="space-y-3">
+                <div className="space-y-3.5">
                   {selectedProducts.map((product) => {
                     const qty = quantities[product.id] || 1;
                     return (
                       <div
                         key={product.id}
-                        className="p-4 bg-white border border-gray-200 rounded-2xl flex items-center justify-between gap-4 hover:border-amber-500/50 transition-all hover:shadow-md"
+                        className="p-4 sm:p-5 bg-white border border-stone-200/80 rounded-[20px] shadow-[0_2px_10px_rgba(0,0,0,0.02)] flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:border-amber-500/30 hover:shadow-[0_4px_16px_rgba(0,0,0,0.04)] transition-all duration-200"
                       >
-                        <div className="flex items-center gap-4">
-                          <div className="w-16 h-16 bg-gray-50 rounded-xl p-2 shrink-0 flex items-center justify-center border border-gray-200">
+                        {/* Product Info & Thumbnail */}
+                        <div className="flex items-center gap-4 min-w-0">
+                          <div className="w-16 h-16 sm:w-18 sm:h-18 bg-[#FCFAF6] rounded-[14px] p-2 shrink-0 flex items-center justify-center border border-stone-200/80">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
                               src={product.image}
@@ -108,36 +119,50 @@ export default function InquiryPage() {
                               className="max-h-full max-w-full object-contain"
                             />
                           </div>
-                          <div>
-                            <span className="text-[10px] text-amber-600 font-bold uppercase">{product.category}</span>
-                            <h3 className="text-sm font-bold text-black leading-snug">{product.name}</h3>
-                            <p className="text-xs text-gray-500">Case Size: {product.packageSize}</p>
+                          <div className="min-w-0">
+                            <span className="text-[10px] font-bold text-amber-700 uppercase tracking-widest bg-amber-500/10 px-2 py-0.5 rounded-md border border-amber-500/15 inline-block mb-1">
+                              {product.category}
+                            </span>
+                            <h3 className="text-sm sm:text-base font-bold text-stone-950 leading-snug truncate">
+                              {product.name}
+                            </h3>
+                            <p className="text-xs text-stone-500 mt-0.5">
+                              Case Size: <span className="font-semibold text-stone-700">{product.packageSize}</span>
+                            </p>
                           </div>
                         </div>
 
-                        <div className="flex items-center gap-4">
-                          <div className="flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-200">
+                        {/* Controls: Stepper & Remove Action */}
+                        <div className="flex items-center justify-between sm:justify-end gap-3 w-full sm:w-auto pt-2 sm:pt-0 border-t sm:border-t-0 border-stone-100">
+                          <div className="flex items-center gap-1.5 bg-[#FCFAF6] px-2.5 py-1.5 rounded-xl border border-stone-200/80 shadow-2xs">
                             <button
+                              type="button"
                               onClick={() => updateQuantity(product.id, qty - 1)}
-                              className="text-gray-500 hover:text-black font-bold"
+                              className="w-7 h-7 rounded-lg bg-white border border-stone-200 text-stone-700 hover:text-stone-950 hover:bg-stone-100 font-bold flex items-center justify-center transition-colors cursor-pointer"
+                              aria-label="Decrease quantity"
                             >
                               -
                             </button>
-                            <span className="text-xs font-bold text-amber-600 w-8 text-center">{qty} Cases</span>
+                            <span className="text-xs font-extrabold text-amber-700 px-2 min-w-[65px] text-center">
+                              {qty} Cases
+                            </span>
                             <button
+                              type="button"
                               onClick={() => updateQuantity(product.id, qty + 1)}
-                              className="text-gray-500 hover:text-black font-bold"
+                              className="w-7 h-7 rounded-lg bg-white border border-stone-200 text-stone-700 hover:text-stone-950 hover:bg-stone-100 font-bold flex items-center justify-center transition-colors cursor-pointer"
+                              aria-label="Increase quantity"
                             >
                               +
                             </button>
                           </div>
 
                           <button
+                            type="button"
                             onClick={() => removeProduct(product.id)}
-                            className="p-1.5 text-gray-400 hover:text-red-500 transition-colors"
+                            className="w-9 h-9 rounded-xl bg-stone-100/70 hover:bg-red-50 text-stone-400 hover:text-red-600 border border-stone-200/60 hover:border-red-200 flex items-center justify-center transition-all cursor-pointer"
                             title="Remove item"
                           >
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                             </svg>
                           </button>
@@ -149,76 +174,99 @@ export default function InquiryPage() {
               )}
             </div>
 
-            {/* Quote Summary Box */}
-            <div className="p-6 bg-white rounded-3xl border border-gray-200 space-y-6 h-fit shadow-sm">
-              <h3 className="text-xl font-bold text-black border-b border-gray-200 pb-3">
-                Wholesale Quote Details
-              </h3>
-
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-xs font-bold uppercase text-gray-700 mb-1">Company / Store Name *</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Enter business name"
-                    className="w-full px-3.5 py-2 bg-gray-50 border border-gray-300 rounded-xl text-xs text-black placeholder:text-gray-400 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
-                  />
+            {/* Right Column: Quote Summary Panel */}
+            <div className="lg:col-span-5">
+              <div className="p-6 sm:p-7 bg-white rounded-[24px] border border-stone-200/80 shadow-[0_4px_24px_rgba(0,0,0,0.03)] space-y-6 h-fit sticky top-24">
+                <div className="border-b border-stone-200/70 pb-3.5 space-y-1">
+                  <h3 className="text-xl font-extrabold text-stone-950 tracking-tight">
+                    Wholesale Quote Details
+                  </h3>
+                  <p className="text-xs text-stone-500">
+                    Direct trade inquiry for fast wholesale fulfillment.
+                  </p>
                 </div>
 
-                <div>
-                  <label className="block text-xs font-bold uppercase text-gray-700 mb-1">Contact Phone *</label>
-                  <input
-                    type="tel"
-                    required
-                    placeholder="e.g. 07404548779"
-                    className="w-full px-3.5 py-2 bg-gray-50 border border-gray-300 rounded-xl text-xs text-black placeholder:text-gray-400 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
-                  />
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1.5">
+                      Company / Store Name <span className="text-amber-600">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Enter business name"
+                      className="w-full h-11 px-3.5 bg-[#FCFAF6] border border-stone-200/90 rounded-xl text-xs font-medium text-stone-900 placeholder:text-stone-400 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1.5">
+                      Contact Phone <span className="text-amber-600">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="e.g. 07404548779"
+                      className="w-full h-11 px-3.5 bg-[#FCFAF6] border border-stone-200/90 rounded-xl text-xs font-medium text-stone-900 placeholder:text-stone-400 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1.5">
+                      Email Address <span className="text-amber-600">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="e.g. buyer@store.com"
+                      className="w-full h-11 px-3.5 bg-[#FCFAF6] border border-stone-200/90 rounded-xl text-xs font-medium text-stone-900 placeholder:text-stone-400 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1.5">
+                      Delivery Location <span className="text-amber-600">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Postcode or area (e.g. TW3, West London)"
+                      className="w-full h-11 px-3.5 bg-[#FCFAF6] border border-stone-200/90 rounded-xl text-xs font-medium text-stone-900 placeholder:text-stone-400 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all"
+                    />
+                  </div>
                 </div>
 
-                <div>
-                  <label className="block text-xs font-bold uppercase text-gray-700 mb-1">Email Address *</label>
-                  <input
-                    type="email"
-                    required
-                    placeholder="e.g. buyer@store.com"
-                    className="w-full px-3.5 py-2 bg-gray-50 border border-gray-300 rounded-xl text-xs text-black placeholder:text-gray-400 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
-                  />
+                {/* Information Grouping Box */}
+                <div className="p-4 bg-[#FAF7F2] rounded-2xl border border-stone-200/70 space-y-2.5 text-xs">
+                  <div className="flex justify-between items-center text-stone-600">
+                    <span className="font-medium">Total Items:</span>
+                    <span className="text-stone-950 font-extrabold bg-stone-100 px-2.5 py-0.5 rounded-md border border-stone-200/60">
+                      {selectedProducts.length}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center text-stone-600">
+                    <span className="font-medium">Distributor:</span>
+                    <span className="text-amber-700 font-bold">{COMPANY_DETAILS.name}</span>
+                  </div>
+                  <div className="flex justify-between items-start text-stone-600 pt-1.5 border-t border-stone-200/50">
+                    <span className="font-medium shrink-0">Hounslow Office:</span>
+                    <span className="text-stone-500 text-[11px] text-right font-normal leading-tight ml-2">
+                      105, Myrtle Road, Hounslow, TW3 1QE
+                    </span>
+                  </div>
                 </div>
 
-                <div>
-                  <label className="block text-xs font-bold uppercase text-gray-700 mb-1">Delivery Location *</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Postcode or area (e.g. TW3, West London)"
-                    className="w-full px-3.5 py-2 bg-gray-50 border border-gray-300 rounded-xl text-xs text-black placeholder:text-gray-400 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
-                  />
-                </div>
+                {/* Action CTA Button */}
+                <button
+                  type="button"
+                  onClick={() => setSubmitted(true)}
+                  disabled={selectedProducts.length === 0}
+                  className="w-full h-14 sm:h-[56px] px-6 bg-amber-500 hover:bg-amber-400 active:scale-[0.98] text-stone-950 font-black text-xs sm:text-sm uppercase tracking-widest rounded-2xl transition-all duration-200 shadow-[0_4px_18px_rgba(245,158,11,0.25)] hover:shadow-[0_6px_22px_rgba(245,158,11,0.35)] hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:shadow-none cursor-pointer flex items-center justify-center gap-2.5"
+                >
+                  <span>Request Wholesale Pricing</span>
+                  <span className="text-base font-black leading-none">→</span>
+                </button>
               </div>
-
-              <div className="p-4 bg-gray-50 rounded-xl border border-gray-200 space-y-2 text-xs">
-                <div className="flex justify-between text-gray-600">
-                  <span>Total Items:</span>
-                  <span className="text-black font-bold">{selectedProducts.length}</span>
-                </div>
-                <div className="flex justify-between text-gray-600">
-                  <span>Distributor:</span>
-                  <span className="text-amber-600 font-bold">{COMPANY_DETAILS.name}</span>
-                </div>
-                <div className="flex justify-between text-gray-600">
-                  <span>Hounslow Office:</span>
-                  <span className="text-gray-700 text-[10px]">105, Myrtle Road, Hounslow, TW3 1QE</span>
-                </div>
-              </div>
-
-              <button
-                onClick={() => setSubmitted(true)}
-                disabled={selectedProducts.length === 0}
-                className="w-full py-3.5 bg-amber-500 text-white font-extrabold text-xs uppercase tracking-widest rounded-xl hover:bg-amber-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-amber-500/20"
-              >
-                Request Wholesale Pricing
-              </button>
             </div>
 
           </div>
