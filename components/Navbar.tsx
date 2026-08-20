@@ -85,12 +85,12 @@ export default function Navbar({ quoteCount = 0 }: NavbarProps) {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-[10000] w-full md:px-6 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-[10000] w-full transition-all duration-300 ${
           isHidden && !mobileMenuOpen ? "-translate-y-full opacity-0 pointer-events-none" : "translate-y-0 opacity-100"
         }`}
       >
-        {/* On Mobile: Full width edge-to-edge with bottom border. On Desktop: Centered floating pill */}
-        <div className="w-full bg-white border-b border-stone-200/80 shadow-xs px-4 sm:px-6 py-3 flex items-center justify-between md:max-w-[98%] md:mx-auto md:rounded-full md:border-none md:shadow-[0_8px_30px_rgb(0,0,0,0.08)] md:px-6 md:py-3 relative z-[10000]">
+        {/* Full-width edge-to-edge navbar across all screen sizes */}
+        <div className="w-full bg-white border-b border-stone-200/80 shadow-xs px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between relative z-[10000]">
           {/* BRAND LOGO */}
           <Link
             href="/"

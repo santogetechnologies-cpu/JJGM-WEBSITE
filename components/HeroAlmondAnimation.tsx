@@ -468,40 +468,40 @@ export default function UnifiedHomepageExperience() {
           </div>
 
           <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 text-left sm:grid-cols-3">
-            <div className="rounded-3xl border border-black/5 bg-gray-50 p-8 shadow-sm transition-all hover:border-black/10">
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-black text-lg font-bold text-white">
+            <div className="group rounded-3xl border border-black/5 bg-gray-50 p-8 shadow-xs transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-[1.015] hover:border-amber-500/40 hover:bg-white hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] hover:shadow-amber-500/5 cursor-pointer">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-black text-lg font-bold text-white transition-all duration-300 group-hover:scale-105 group-hover:bg-amber-500 group-hover:text-stone-950 group-hover:shadow-md group-hover:shadow-amber-500/20">
                 1
               </div>
-              <h3 className="mb-3 text-xl font-semibold text-black">
+              <h3 className="mb-3 text-xl font-semibold text-black transition-colors duration-300 group-hover:text-stone-950">
                 Direct Distribution
               </h3>
-              <p className="text-base font-medium text-black/60">
+              <p className="text-base font-medium text-black/60 leading-relaxed">
                 Competitive bulk wholesale pricing direct to retailers,
                 supermarkets, and catering.
               </p>
             </div>
 
-            <div className="rounded-3xl border border-black/5 bg-gray-50 p-8 shadow-sm transition-all hover:border-black/10">
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-black text-lg font-bold text-white">
+            <div className="group rounded-3xl border border-black/5 bg-gray-50 p-8 shadow-xs transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-[1.015] hover:border-amber-500/40 hover:bg-white hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] hover:shadow-amber-500/5 cursor-pointer">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-black text-lg font-bold text-white transition-all duration-300 group-hover:scale-105 group-hover:bg-amber-500 group-hover:text-stone-950 group-hover:shadow-md group-hover:shadow-amber-500/20">
                 2
               </div>
-              <h3 className="mb-3 text-xl font-semibold text-black">
+              <h3 className="mb-3 text-xl font-semibold text-black transition-colors duration-300 group-hover:text-stone-950">
                 Premium Selection
               </h3>
-              <p className="text-base font-medium text-black/60">
+              <p className="text-base font-medium text-black/60 leading-relaxed">
                 Fresh almonds, roasted nuts, crisps, confectionery, wafers, and
                 protein snacks.
               </p>
             </div>
 
-            <div className="rounded-3xl border border-black/5 bg-gray-50 p-8 shadow-sm transition-all hover:border-black/10">
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-black text-lg font-bold text-white">
+            <div className="group rounded-3xl border border-black/5 bg-gray-50 p-8 shadow-xs transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-[1.015] hover:border-amber-500/40 hover:bg-white hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] hover:shadow-amber-500/5 cursor-pointer">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-black text-lg font-bold text-white transition-all duration-300 group-hover:scale-105 group-hover:bg-amber-500 group-hover:text-stone-950 group-hover:shadow-md group-hover:shadow-amber-500/20">
                 3
               </div>
-              <h3 className="mb-3 text-xl font-semibold text-black">
+              <h3 className="mb-3 text-xl font-semibold text-black transition-colors duration-300 group-hover:text-stone-950">
                 Fast Supply
               </h3>
-              <p className="text-base font-medium text-black/60">
+              <p className="text-base font-medium text-black/60 leading-relaxed">
                 Reliable nationwide logistics with dedicated trade customer
                 service.
               </p>
