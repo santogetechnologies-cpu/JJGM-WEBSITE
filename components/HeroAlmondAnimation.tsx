@@ -436,6 +436,167 @@ export default function UnifiedHomepageExperience() {
         </div>
       </section>
 
+      {/* ─── NEW: EXPLORE OUR PRODUCT RANGE SECTION ─── */}
+      <section className="relative bg-[#FCFAF6] py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 border-t border-stone-200/60 overflow-hidden">
+        {/* Subtle Ambient Glow */}
+        <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-amber-500/[0.03] blur-3xl rounded-full pointer-events-none" />
+
+        <div className="mx-auto max-w-7xl relative z-10 space-y-12 sm:space-y-14">
+          
+          {/* Section Header */}
+          <div className="text-center max-w-3xl mx-auto space-y-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 text-xs font-bold uppercase tracking-widest shadow-2xs">
+              <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+              <span>Wholesale Collections</span>
+            </div>
+
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-stone-950 leading-[1.08]">
+              Explore Our <span className="text-amber-600">Product Range</span>
+            </h2>
+
+            <p className="text-stone-600 text-base sm:text-lg lg:text-xl font-normal leading-relaxed">
+              Premium products selected for UK retailers, supermarkets and trade customers.
+            </p>
+          </div>
+
+          {/* Editorial Asymmetric Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6">
+            
+            {/* ROW 1: Card 1 — Nuts & Roasted (approx 60% / 7 cols) */}
+            <Link
+              href="/products"
+              className="group relative lg:col-span-7 h-[280px] sm:h-[340px] lg:h-[390px] rounded-[24px] lg:rounded-[28px] overflow-hidden border border-stone-200/80 shadow-md hover:shadow-2xl hover:border-amber-500/40 hover:-translate-y-1 transition-all duration-300 block cursor-pointer"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/categories/nuts-roasted.jpg"
+                alt="Nuts & Roasted Wholesale Selection"
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10 group-hover:from-black/90 transition-colors duration-300" />
+              <div className="absolute inset-0 p-6 sm:p-8 lg:p-10 flex flex-col justify-end text-left space-y-2">
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-500/20 px-3 py-1 rounded-full border border-amber-400/30 w-fit backdrop-blur-xs">
+                  Direct UK Supply
+                </span>
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight">
+                  Nuts & Roasted
+                </h3>
+                <div className="flex items-center gap-2 text-sm sm:text-base font-semibold text-white/90 group-hover:text-amber-400 pt-1 transition-colors duration-200">
+                  <span>Explore Category</span>
+                  <span className="transform group-hover:translate-x-1.5 transition-transform duration-300">→</span>
+                </div>
+              </div>
+            </Link>
+
+            {/* ROW 1: Card 2 — Wafers & Biscuits (approx 40% / 5 cols) */}
+            <Link
+              href="/products"
+              className="group relative lg:col-span-5 h-[280px] sm:h-[340px] lg:h-[390px] rounded-[24px] lg:rounded-[28px] overflow-hidden border border-stone-200/80 shadow-md hover:shadow-2xl hover:border-amber-500/40 hover:-translate-y-1 transition-all duration-300 block cursor-pointer"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/categories/wafers-biscuits.jpg"
+                alt="Wafers & Biscuits Wholesale Selection"
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10 group-hover:from-black/90 transition-colors duration-300" />
+              <div className="absolute inset-0 p-6 sm:p-8 lg:p-10 flex flex-col justify-end text-left space-y-2">
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-500/20 px-3 py-1 rounded-full border border-amber-400/30 w-fit backdrop-blur-xs">
+                  European Bakery
+                </span>
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight">
+                  Wafers & Biscuits
+                </h3>
+                <div className="flex items-center gap-2 text-sm sm:text-base font-semibold text-white/90 group-hover:text-amber-400 pt-1 transition-colors duration-200">
+                  <span>Explore Category</span>
+                  <span className="transform group-hover:translate-x-1.5 transition-transform duration-300">→</span>
+                </div>
+              </div>
+            </Link>
+
+            {/* ROW 2: Card 3 — Savouries (approx 40% / 5 cols) */}
+            <Link
+              href="/products"
+              className="group relative lg:col-span-5 h-[280px] sm:h-[340px] lg:h-[390px] rounded-[24px] lg:rounded-[28px] overflow-hidden border border-stone-200/80 shadow-md hover:shadow-2xl hover:border-amber-500/40 hover:-translate-y-1 transition-all duration-300 block cursor-pointer"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/categories/savouries.jpg"
+                alt="Savouries & Crisps Wholesale Selection"
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10 group-hover:from-black/90 transition-colors duration-300" />
+              <div className="absolute inset-0 p-6 sm:p-8 lg:p-10 flex flex-col justify-end text-left space-y-2">
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-500/20 px-3 py-1 rounded-full border border-amber-400/30 w-fit backdrop-blur-xs">
+                  Retail Favourites
+                </span>
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight">
+                  Savouries
+                </h3>
+                <div className="flex items-center gap-2 text-sm sm:text-base font-semibold text-white/90 group-hover:text-amber-400 pt-1 transition-colors duration-200">
+                  <span>Explore Category</span>
+                  <span className="transform group-hover:translate-x-1.5 transition-transform duration-300">→</span>
+                </div>
+              </div>
+            </Link>
+
+            {/* ROW 2: Card 4 — Confectionery (approx 60% / 7 cols) */}
+            <Link
+              href="/products"
+              className="group relative lg:col-span-7 h-[280px] sm:h-[340px] lg:h-[390px] rounded-[24px] lg:rounded-[28px] overflow-hidden border border-stone-200/80 shadow-md hover:shadow-2xl hover:border-amber-500/40 hover:-translate-y-1 transition-all duration-300 block cursor-pointer"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/categories/confectionery.jpg"
+                alt="Confectionery & Chocolates Wholesale Selection"
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10 group-hover:from-black/90 transition-colors duration-300" />
+              <div className="absolute inset-0 p-6 sm:p-8 lg:p-10 flex flex-col justify-end text-left space-y-2">
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-500/20 px-3 py-1 rounded-full border border-amber-400/30 w-fit backdrop-blur-xs">
+                  Artisan Chocolates
+                </span>
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight">
+                  Confectionery
+                </h3>
+                <div className="flex items-center gap-2 text-sm sm:text-base font-semibold text-white/90 group-hover:text-amber-400 pt-1 transition-colors duration-200">
+                  <span>Explore Category</span>
+                  <span className="transform group-hover:translate-x-1.5 transition-transform duration-300">→</span>
+                </div>
+              </div>
+            </Link>
+
+            {/* ROW 3: Card 5 — Protein & Snacks (100% full-width / 12 cols) */}
+            <Link
+              href="/products"
+              className="group relative lg:col-span-12 h-[260px] sm:h-[320px] lg:h-[360px] rounded-[24px] lg:rounded-[28px] overflow-hidden border border-stone-200/80 shadow-md hover:shadow-2xl hover:border-amber-500/40 hover:-translate-y-1 transition-all duration-300 block cursor-pointer"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/categories/protein-snacks.jpg"
+                alt="Protein & Fitness Snacks Wholesale Range"
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/15 group-hover:from-black/90 transition-colors duration-300" />
+              <div className="absolute inset-0 p-6 sm:p-8 lg:p-10 flex flex-col justify-end text-left space-y-2">
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-500/20 px-3 py-1 rounded-full border border-amber-400/30 w-fit backdrop-blur-xs">
+                  High Protein & Energy
+                </span>
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight">
+                  Protein & Snacks
+                </h3>
+                <div className="flex items-center gap-2 text-sm sm:text-base font-semibold text-white/90 group-hover:text-amber-400 pt-1 transition-colors duration-200">
+                  <span>Explore Category</span>
+                  <span className="transform group-hover:translate-x-1.5 transition-transform duration-300">→</span>
+                </div>
+              </div>
+            </Link>
+
+          </div>
+
+        </div>
+      </section>
+
       <section className="relative bg-white px-4 pt-6 pb-16 sm:px-6 md:pt-8 md:pb-20 lg:px-8">
         <div className="mx-auto max-w-7xl space-y-6 text-center sm:space-y-8">
           <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-black/5 px-4 py-1.5 text-xs font-semibold tracking-widest text-black/70">
