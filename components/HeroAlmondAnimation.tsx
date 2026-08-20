@@ -366,54 +366,72 @@ export default function UnifiedHomepageExperience() {
       {/* White line to cover bottom gap */}
       <div className="w-full h-1 bg-white relative z-10" style={{ marginBottom: '-1px' }} />
 
-      {/* Static content — appears only after the animation section ends */}
-      <section className="relative bg-[#F7F5F1] px-4 pt-4 sm:pt-8 pb-6 sm:px-6 md:pt-16 md:pb-12 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid items-center gap-6 sm:gap-8 lg:grid-cols-2 lg:gap-16">
-            {/* Image — Handshake / Partnership */}
-            <div className="order-2 lg:order-1">
-              <div className="relative overflow-hidden rounded-3xl border border-black/5 shadow-2xl shadow-black/10">
-                <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl">
+      {/* Static content — Premium Redesigned "Partner With Us" Section */}
+      <section className="relative bg-gradient-to-b from-[#FCFAF6] via-[#F8F6F0] to-[#FCFAF6] py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 border-t border-stone-200/60 overflow-hidden">
+        {/* Subtle Ambient Glow */}
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-amber-500/[0.025] blur-3xl rounded-full pointer-events-none" />
+
+        <div className="mx-auto max-w-7xl relative z-10">
+          <div className="grid items-center gap-10 sm:gap-12 lg:grid-cols-12 lg:gap-16">
+            
+            {/* Left Image — Dominant, Clean Rounded Container */}
+            <div className="order-1 lg:col-span-6">
+              <div className="relative overflow-hidden rounded-3xl lg:rounded-[28px] border border-stone-200/80 shadow-xl shadow-stone-900/5 bg-stone-100 group">
+                <div className="aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3] w-full overflow-hidden">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/images/business-partnership.jpg"
                     alt="Business partnership handshake"
-                    className="h-full w-full object-cover object-center"
+                    className="h-full w-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-700"
                   />
                 </div>
               </div>
             </div>
 
-            {/* Text Content */}
-            <div className="order-1 space-y-4 text-center sm:space-y-6 lg:order-2 lg:text-left">
-              <div className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-black/5 px-3.5 py-1 text-xs font-semibold tracking-widest text-black/60">
-                Direct UK Trade Distribution
+            {/* Right Text Content — Strong Hierarchy & Generous Whitespace */}
+            <div className="order-2 lg:col-span-6 space-y-6 text-left">
+              
+              {/* Top Refined Pill Badge */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 text-xs font-bold uppercase tracking-widest shadow-2xs">
+                <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                <span>Direct UK Trade Distribution</span>
               </div>
 
-              <h2 className="text-3xl font-semibold tracking-tight text-black sm:text-5xl md:text-6xl">
-                Partner With Us
-              </h2>
+              {/* Heading */}
+              <div className="space-y-2 w-fit">
+                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-stone-950 leading-[1.08]">
+                  Partner <span className="text-amber-600">With Us</span>
+                </h2>
+                <div className="w-12 h-1 bg-amber-500 rounded-full mx-auto" />
+              </div>
 
-              <p className="mx-auto max-w-xl text-sm font-medium leading-relaxed text-black/60 sm:text-lg lg:mx-0">
-                Ready to elevate your product offerings with a premium selection?
+              {/* Description */}
+              <p className="text-stone-600 text-base sm:text-lg lg:text-xl font-normal leading-relaxed max-w-xl">
+                Ready to elevate your product offerings with a premium selection? Partner directly with JJGM & CO. for dependable wholesale distribution across the UK.
               </p>
 
-              <div className="flex flex-col items-center justify-center gap-3 pt-2 sm:flex-row sm:gap-6 lg:justify-start">
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
                 <Link
                   href="/products"
-                  className="w-full rounded-full bg-black px-8 py-3.5 text-sm font-semibold text-white shadow-xl transition-all duration-300 hover:scale-105 hover:bg-black/80 sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-stone-950 text-white font-bold text-sm tracking-wide shadow-md hover:bg-stone-800 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200"
                 >
-                  View Catalog
+                  <span>View Catalog</span>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
                 </Link>
 
                 <Link
                   href="/inquiry"
-                  className="w-full rounded-full border border-black/20 bg-transparent px-8 py-3.5 text-sm font-semibold text-black transition-all hover:bg-black/5 sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-stone-900 font-bold text-sm tracking-wide border border-stone-300 hover:border-stone-900 hover:bg-stone-50 transition-all duration-200 shadow-2xs"
                 >
-                  Request Quote
+                  <span>Request Quote</span>
                 </Link>
               </div>
+
             </div>
+
           </div>
         </div>
       </section>
