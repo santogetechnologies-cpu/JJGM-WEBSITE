@@ -482,11 +482,11 @@ export default function UnifiedHomepageExperience() {
             {/* Left Image — Dominant, Clean Rounded Container */}
             <div className="order-1 lg:col-span-6">
               <div className="relative overflow-hidden rounded-3xl lg:rounded-[28px] border border-stone-200/80 shadow-xl shadow-stone-900/5 bg-stone-100 group">
-                <div className="aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3] w-full overflow-hidden">
+                <div className="aspect-[3/2] w-full overflow-hidden">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/images/business-partnership.jpg"
-                    alt="Business partnership handshake"
+                    src="/images/partner-with-us.jpg"
+                    alt="Building Stronger Partnerships - Delivering Quality. Building Trust."
                     className="h-full w-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-700"
                   />
                 </div>
