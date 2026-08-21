@@ -73,6 +73,51 @@ function LeafSprig({ className = "", flip = false }: { className?: string; flip?
   );
 }
 
+function FaintBotanicalBranch({ className = "", flip = false }: { className?: string; flip?: boolean }) {
+  return (
+    <svg
+      viewBox="0 0 200 400"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={`pointer-events-none opacity-40 select-none ${flip ? "-scale-x-100" : ""} ${className}`}
+    >
+      <path
+        d="M20 380 Q 70 240 100 40"
+        stroke="#E8D5BE"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+      />
+      {/* Leaves */}
+      <path d="M40 320 C 10 300 0 260 25 240 C 45 260 50 300 40 320 Z" fill="#EAD8C3" opacity="0.8" />
+      <path d="M55 270 C 95 250 110 210 90 190 C 70 210 60 250 55 270 Z" fill="#EAD8C3" opacity="0.85" />
+      <path d="M68 210 C 35 190 25 150 50 130 C 70 150 75 190 68 210 Z" fill="#EAD8C3" opacity="0.8" />
+      <path d="M82 150 C 120 130 130 90 110 75 C 90 95 85 130 82 150 Z" fill="#EAD8C3" opacity="0.85" />
+      <path d="M96 90 C 75 70 70 35 90 20 C 105 35 105 70 96 90 Z" fill="#EAD8C3" opacity="0.8" />
+    </svg>
+  );
+}
+
+function OrnateDivider() {
+  return (
+    <div className="flex items-center justify-center gap-3 w-full max-w-xs mx-auto text-[#BC531A] select-none">
+      <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-[#BC531A]/40" />
+      {/* Left leaf sprig */}
+      <svg className="w-5 h-3 shrink-0" viewBox="0 0 24 12" fill="currentColor">
+        <path d="M2 6 C6 3 12 3 14 6 C12 9 6 9 2 6 Z" />
+        <path d="M12 5 C15 2 20 2 22 5 C20 8 15 8 12 5 Z" />
+      </svg>
+      {/* Center lozenge / diamond */}
+      <span className="text-[10px] transform rotate-45 border border-[#BC531A] w-2 h-2 shrink-0 inline-block bg-transparent" />
+      {/* Right leaf sprig (flipped) */}
+      <svg className="w-5 h-3 shrink-0 -scale-x-100" viewBox="0 0 24 12" fill="currentColor">
+        <path d="M2 6 C6 3 12 3 14 6 C12 9 6 9 2 6 Z" />
+        <path d="M12 5 C15 2 20 2 22 5 C20 8 15 8 12 5 Z" />
+      </svg>
+      <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-[#BC531A]/40" />
+    </div>
+  );
+}
+
 export default function UnifiedHomepageExperience() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -275,7 +320,7 @@ export default function UnifiedHomepageExperience() {
   return (
     <div className="w-full bg-white relative">
       {/* Leave space for navbar */}
-      <div className="h-12 md:h-20 w-full bg-white" />
+      <div className="h-10 md:h-14 w-full bg-white" />
 
       {/* White line to cover top gap */}
       <div className="w-full h-1 bg-white relative z-10" style={{ marginTop: '-1px' }} />
@@ -283,7 +328,7 @@ export default function UnifiedHomepageExperience() {
       {/* Scroll-driven animation only — no overlay content */}
       <div
         ref={wrapperRef}
-        className="relative w-full bg-white h-[200vh] md:h-[380vh]"
+        className="relative w-full bg-white h-[180vh] md:h-[280vh]"
         style={{
           marginTop: '0',
           paddingTop: '0px',
@@ -472,16 +517,16 @@ export default function UnifiedHomepageExperience() {
       <div className="w-full h-1 bg-white relative z-10" style={{ marginBottom: '-1px' }} />
 
       {/* Static content — Premium Redesigned "Partner With Us" Section */}
-      <section className="relative bg-gradient-to-b from-[#FCFAF6] via-[#F8F6F0] to-[#FCFAF6] py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 border-t border-stone-200/60 overflow-hidden">
+      <section className="relative bg-gradient-to-b from-[#FCFAF6] via-[#F8F6F0] to-[#FCFAF6] py-12 sm:py-14 lg:py-16 px-4 sm:px-6 lg:px-8 border-t border-stone-200/60 overflow-hidden">
         {/* Subtle Ambient Glow */}
         <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-amber-500/[0.025] blur-3xl rounded-full pointer-events-none" />
 
         <div className="mx-auto max-w-7xl relative z-10">
-          <div className="grid items-center gap-10 sm:gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="grid items-center gap-8 sm:gap-10 lg:grid-cols-12 lg:gap-12">
 
             {/* Left Image — Dominant, Clean Rounded Container */}
             <div className="order-1 lg:col-span-6">
-              <div className="relative overflow-hidden rounded-3xl lg:rounded-[28px] border border-stone-200/80 shadow-xl shadow-stone-900/5 bg-stone-100 group">
+              <div className="relative overflow-hidden rounded-2xl lg:rounded-[24px] border border-stone-200/80 shadow-xl shadow-stone-900/5 bg-stone-100 group">
                 <div className="aspect-[3/2] w-full overflow-hidden">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -494,7 +539,7 @@ export default function UnifiedHomepageExperience() {
             </div>
 
             {/* Right Text Content — Strong Hierarchy & Generous Whitespace */}
-            <div className="order-2 lg:col-span-6 space-y-6 text-left">
+            <div className="order-2 lg:col-span-6 space-y-4 sm:space-y-5 text-left">
 
               {/* Top Refined Pill Badge */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 text-xs font-bold uppercase tracking-widest shadow-2xs">
@@ -542,14 +587,14 @@ export default function UnifiedHomepageExperience() {
       </section>
 
       {/* ─── NEW: EXPLORE OUR PRODUCT RANGE SECTION ─── */}
-      <section className="relative bg-[#FCFAF6] py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 border-t border-stone-200/60 overflow-hidden">
+      <section className="relative bg-[#FCFAF6] py-12 sm:py-14 lg:py-16 px-4 sm:px-6 lg:px-8 border-t border-stone-200/60 overflow-hidden">
         {/* Subtle Ambient Glow */}
         <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-amber-500/[0.03] blur-3xl rounded-full pointer-events-none" />
 
-        <div className="mx-auto max-w-7xl relative z-10 space-y-12 sm:space-y-14">
+        <div className="mx-auto max-w-7xl relative z-10 space-y-8 sm:space-y-10">
 
           {/* Section Header */}
-          <div className="text-center max-w-3xl mx-auto space-y-4">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 text-xs font-bold uppercase tracking-widest shadow-2xs">
               <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
               <span>Wholesale Collections</span>
@@ -565,12 +610,12 @@ export default function UnifiedHomepageExperience() {
           </div>
 
           {/* Editorial Asymmetric Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5">
 
             {/* ROW 1: Card 1 — Nuts & Roasted (approx 60% / 7 cols) */}
             <Link
               href="/products"
-              className="group relative lg:col-span-7 h-[280px] sm:h-[340px] lg:h-[390px] rounded-[24px] lg:rounded-[28px] overflow-hidden border border-stone-200/80 shadow-md hover:shadow-2xl hover:border-amber-500/40 hover:-translate-y-1 transition-all duration-300 block cursor-pointer"
+              className="group relative lg:col-span-7 h-[230px] sm:h-[280px] lg:h-[320px] rounded-[22px] lg:rounded-[26px] overflow-hidden border border-stone-200/80 shadow-md hover:shadow-2xl hover:border-amber-500/40 hover:-translate-y-1 transition-all duration-300 block cursor-pointer"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -579,14 +624,14 @@ export default function UnifiedHomepageExperience() {
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10 group-hover:from-black/90 transition-colors duration-300" />
-              <div className="absolute inset-0 p-6 sm:p-8 lg:p-10 flex flex-col justify-end text-left space-y-2">
-                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-500/20 px-3 py-1 rounded-full border border-amber-400/30 w-fit backdrop-blur-xs">
+              <div className="absolute inset-0 p-5 sm:p-7 lg:p-8 flex flex-col justify-end text-left space-y-1.5">
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-500/20 px-2.5 py-0.5 rounded-full border border-amber-400/30 w-fit backdrop-blur-xs">
                   Direct UK Supply
                 </span>
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight">
+                <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">
                   Nuts & Roasted
                 </h3>
-                <div className="flex items-center gap-2 text-sm sm:text-base font-semibold text-white/90 group-hover:text-amber-400 pt-1 transition-colors duration-200">
+                <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-white/90 group-hover:text-amber-400 pt-0.5 transition-colors duration-200">
                   <span>Explore Category</span>
                   <span className="transform group-hover:translate-x-1.5 transition-transform duration-300">→</span>
                 </div>
@@ -596,7 +641,7 @@ export default function UnifiedHomepageExperience() {
             {/* ROW 1: Card 2 — Wafers & Biscuits (approx 40% / 5 cols) */}
             <Link
               href="/products"
-              className="group relative lg:col-span-5 h-[280px] sm:h-[340px] lg:h-[390px] rounded-[24px] lg:rounded-[28px] overflow-hidden border border-stone-200/80 shadow-md hover:shadow-2xl hover:border-amber-500/40 hover:-translate-y-1 transition-all duration-300 block cursor-pointer"
+              className="group relative lg:col-span-5 h-[230px] sm:h-[280px] lg:h-[320px] rounded-[22px] lg:rounded-[26px] overflow-hidden border border-stone-200/80 shadow-md hover:shadow-2xl hover:border-amber-500/40 hover:-translate-y-1 transition-all duration-300 block cursor-pointer"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -605,14 +650,14 @@ export default function UnifiedHomepageExperience() {
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10 group-hover:from-black/90 transition-colors duration-300" />
-              <div className="absolute inset-0 p-6 sm:p-8 lg:p-10 flex flex-col justify-end text-left space-y-2">
-                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-500/20 px-3 py-1 rounded-full border border-amber-400/30 w-fit backdrop-blur-xs">
+              <div className="absolute inset-0 p-5 sm:p-7 lg:p-8 flex flex-col justify-end text-left space-y-1.5">
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-500/20 px-2.5 py-0.5 rounded-full border border-amber-400/30 w-fit backdrop-blur-xs">
                   European Bakery
                 </span>
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight">
+                <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">
                   Wafers & Biscuits
                 </h3>
-                <div className="flex items-center gap-2 text-sm sm:text-base font-semibold text-white/90 group-hover:text-amber-400 pt-1 transition-colors duration-200">
+                <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-white/90 group-hover:text-amber-400 pt-0.5 transition-colors duration-200">
                   <span>Explore Category</span>
                   <span className="transform group-hover:translate-x-1.5 transition-transform duration-300">→</span>
                 </div>
@@ -622,7 +667,7 @@ export default function UnifiedHomepageExperience() {
             {/* ROW 2: Card 3 — Savouries (approx 40% / 5 cols) */}
             <Link
               href="/products"
-              className="group relative lg:col-span-5 h-[280px] sm:h-[340px] lg:h-[390px] rounded-[24px] lg:rounded-[28px] overflow-hidden border border-stone-200/80 shadow-md hover:shadow-2xl hover:border-amber-500/40 hover:-translate-y-1 transition-all duration-300 block cursor-pointer"
+              className="group relative lg:col-span-5 h-[230px] sm:h-[280px] lg:h-[320px] rounded-[22px] lg:rounded-[26px] overflow-hidden border border-stone-200/80 shadow-md hover:shadow-2xl hover:border-amber-500/40 hover:-translate-y-1 transition-all duration-300 block cursor-pointer"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -631,14 +676,14 @@ export default function UnifiedHomepageExperience() {
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10 group-hover:from-black/90 transition-colors duration-300" />
-              <div className="absolute inset-0 p-6 sm:p-8 lg:p-10 flex flex-col justify-end text-left space-y-2">
-                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-500/20 px-3 py-1 rounded-full border border-amber-400/30 w-fit backdrop-blur-xs">
+              <div className="absolute inset-0 p-5 sm:p-7 lg:p-8 flex flex-col justify-end text-left space-y-1.5">
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-500/20 px-2.5 py-0.5 rounded-full border border-amber-400/30 w-fit backdrop-blur-xs">
                   Retail Favourites
                 </span>
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight">
+                <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">
                   Savouries
                 </h3>
-                <div className="flex items-center gap-2 text-sm sm:text-base font-semibold text-white/90 group-hover:text-amber-400 pt-1 transition-colors duration-200">
+                <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-white/90 group-hover:text-amber-400 pt-0.5 transition-colors duration-200">
                   <span>Explore Category</span>
                   <span className="transform group-hover:translate-x-1.5 transition-transform duration-300">→</span>
                 </div>
@@ -648,7 +693,7 @@ export default function UnifiedHomepageExperience() {
             {/* ROW 2: Card 4 — Confectionery (approx 60% / 7 cols) */}
             <Link
               href="/products"
-              className="group relative lg:col-span-7 h-[280px] sm:h-[340px] lg:h-[390px] rounded-[24px] lg:rounded-[28px] overflow-hidden border border-stone-200/80 shadow-md hover:shadow-2xl hover:border-amber-500/40 hover:-translate-y-1 transition-all duration-300 block cursor-pointer"
+              className="group relative lg:col-span-7 h-[230px] sm:h-[280px] lg:h-[320px] rounded-[22px] lg:rounded-[26px] overflow-hidden border border-stone-200/80 shadow-md hover:shadow-2xl hover:border-amber-500/40 hover:-translate-y-1 transition-all duration-300 block cursor-pointer"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -657,14 +702,14 @@ export default function UnifiedHomepageExperience() {
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10 group-hover:from-black/90 transition-colors duration-300" />
-              <div className="absolute inset-0 p-6 sm:p-8 lg:p-10 flex flex-col justify-end text-left space-y-2">
-                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-500/20 px-3 py-1 rounded-full border border-amber-400/30 w-fit backdrop-blur-xs">
+              <div className="absolute inset-0 p-5 sm:p-7 lg:p-8 flex flex-col justify-end text-left space-y-1.5">
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-500/20 px-2.5 py-0.5 rounded-full border border-amber-400/30 w-fit backdrop-blur-xs">
                   Artisan Chocolates
                 </span>
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight">
+                <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">
                   Confectionery
                 </h3>
-                <div className="flex items-center gap-2 text-sm sm:text-base font-semibold text-white/90 group-hover:text-amber-400 pt-1 transition-colors duration-200">
+                <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-white/90 group-hover:text-amber-400 pt-0.5 transition-colors duration-200">
                   <span>Explore Category</span>
                   <span className="transform group-hover:translate-x-1.5 transition-transform duration-300">→</span>
                 </div>
@@ -674,7 +719,7 @@ export default function UnifiedHomepageExperience() {
             {/* ROW 3: Card 5 — Protein & Snacks (100% full-width / 12 cols) */}
             <Link
               href="/products"
-              className="group relative lg:col-span-12 h-[260px] sm:h-[320px] lg:h-[360px] rounded-[24px] lg:rounded-[28px] overflow-hidden border border-stone-200/80 shadow-md hover:shadow-2xl hover:border-amber-500/40 hover:-translate-y-1 transition-all duration-300 block cursor-pointer"
+              className="group relative lg:col-span-12 h-[210px] sm:h-[250px] lg:h-[280px] rounded-[22px] lg:rounded-[26px] overflow-hidden border border-stone-200/80 shadow-md hover:shadow-2xl hover:border-amber-500/40 hover:-translate-y-1 transition-all duration-300 block cursor-pointer"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -702,93 +747,111 @@ export default function UnifiedHomepageExperience() {
         </div>
       </section>
 
-      <section className="relative bg-white px-4 pt-6 pb-16 sm:px-6 md:pt-8 md:pb-20 lg:px-8">
-        <div className="mx-auto max-w-7xl space-y-6 text-center sm:space-y-8">
-          <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-black/5 px-4 py-1.5 text-xs font-semibold tracking-widest text-black/70">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-black/40" />
-            UK Trade & Wholesale Distribution
+      {/* ─── SECTION: ELEVATE YOUR OFFERINGS (PREMIUM EDITORIAL REDESIGN) ─── */}
+      <section className="relative bg-gradient-to-b from-[#FCFAF6] via-[#FAF7F2] to-[#F5EFEB] py-12 sm:py-14 lg:py-16 px-4 sm:px-6 lg:px-8 border-t border-stone-200/60 overflow-hidden">
+        <div className="mx-auto max-w-6xl relative z-10 space-y-7 sm:space-y-8">
+          
+          {/* Header Block */}
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            
+            {/* Top Pill Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F2EFE9] border border-stone-300/70 text-stone-700 text-[11px] font-bold uppercase tracking-[0.18em] shadow-2xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#BC531A]" />
+              <span>UK Trade & Wholesale Distribution</span>
+            </div>
+
+            {/* Main Heading */}
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[64px] font-serif font-normal tracking-tight text-stone-900 leading-[1.12]">
+              Elevate Your <span className="text-[#BC531A]">Offerings</span>
+            </h2>
+
+            {/* Ornate Divider */}
+            <OrnateDivider />
+
+            {/* Description Subtitle */}
+            <p className="text-stone-600 text-base sm:text-lg md:text-xl font-normal leading-relaxed max-w-2xl mx-auto pt-0.5">
+              Direct UK Trade Distribution. Seamless supply for retailers and supermarkets.
+            </p>
           </div>
 
-          <h2 className="text-5xl font-semibold tracking-tight text-black sm:text-7xl">
-            Elevate Your Offerings
-          </h2>
-
-          <p className="mx-auto max-w-2xl text-xl font-medium leading-relaxed text-black/60 sm:text-2xl">
-            Direct UK Trade Distribution. Seamless supply for retailers and
-            supermarkets.
-          </p>
-
-          {/* Supermarket / Retail Image */}
-          <div className="mx-auto max-w-5xl pt-2">
-            <div className="relative overflow-hidden rounded-3xl border border-black/5 shadow-2xl shadow-black/10">
-              <div className="aspect-[16/9] w-full">
+          {/* Center Image Container with Overlapping Cards */}
+          <div className="relative mx-auto max-w-5xl">
+            {/* Main Large Image */}
+            <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl lg:rounded-[32px] border border-stone-200/80 shadow-2xl shadow-stone-900/10 bg-stone-100">
+              <div className="aspect-[16/10] sm:aspect-[16/9] w-full">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/retail-shopping.jpg"
                   alt="Customer shopping in modern supermarket"
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover object-center"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+            </div>
+
+            {/* Three Feature Cards Overlapping Lower Edge of Image */}
+            <div className="-mt-12 sm:-mt-16 lg:-mt-20 relative z-20 px-2 sm:px-4 lg:px-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+                
+                {/* Card 1: Direct Distribution */}
+                <div className="bg-white rounded-2xl lg:rounded-[24px] px-6 sm:px-7 lg:px-8 py-6 sm:py-6 lg:py-7 border border-stone-200/80 shadow-lg shadow-stone-900/5 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-start gap-4 sm:gap-5 min-h-[145px] sm:min-h-[155px] lg:min-h-[160px]">
+                  <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#FAF3E8] border border-[#F2E5D0] flex items-center justify-center shrink-0 text-[#BC531A]">
+                    {/* Delivery Truck Icon */}
+                    <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 17a2 2 0 100-4 2 2 0 000 4zm10 0a2 2 0 100-4 2 2 0 000 4z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 15V6a2 2 0 012-2h8a2 2 0 012 2v9m0 0h3l3 3v2a1 1 0 01-1 1h-2m-3-6h-8m8 0v-4h4l2 4" />
+                    </svg>
+                  </div>
+                  <div className="space-y-1.5">
+                    <h3 className="font-serif font-bold text-lg sm:text-xl text-stone-900 leading-snug">
+                      Direct Distribution
+                    </h3>
+                    <p className="text-xs sm:text-[13.5px] lg:text-[14px] text-stone-600 font-normal leading-relaxed">
+                      Competitive bulk wholesale pricing direct to retailers, supermarkets, and catering.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Card 2: Premium Selection */}
+                <div className="bg-white rounded-2xl lg:rounded-[24px] px-6 sm:px-7 lg:px-8 py-6 sm:py-6 lg:py-7 border border-stone-200/80 shadow-lg shadow-stone-900/5 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-start gap-4 sm:gap-5 min-h-[145px] sm:min-h-[155px] lg:min-h-[160px]">
+                  <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#FAF3E8] border border-[#F2E5D0] flex items-center justify-center shrink-0 text-[#BC531A]">
+                    {/* Rosette Ribbon / Award Icon */}
+                    <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <circle cx="12" cy="9" r="6" strokeWidth={1.5} stroke="currentColor" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 14.5L7 21l5-2.5L17 21l-2-6.5" />
+                    </svg>
+                  </div>
+                  <div className="space-y-1.5">
+                    <h3 className="font-serif font-bold text-lg sm:text-xl text-stone-900 leading-snug">
+                      Premium Selection
+                    </h3>
+                    <p className="text-xs sm:text-[13.5px] lg:text-[14px] text-stone-600 font-normal leading-relaxed">
+                      Fresh almonds, roasted nuts, crisps, confectionery, wafers, and protein snacks.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Card 3: Fast Supply */}
+                <div className="bg-white rounded-2xl lg:rounded-[24px] px-6 sm:px-7 lg:px-8 py-6 sm:py-6 lg:py-7 border border-stone-200/80 shadow-lg shadow-stone-900/5 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-start gap-4 sm:gap-5 min-h-[145px] sm:min-h-[155px] lg:min-h-[160px]">
+                  <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#FAF3E8] border border-[#F2E5D0] flex items-center justify-center shrink-0 text-[#BC531A]">
+                    {/* Package Box Icon */}
+                    <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                    </svg>
+                  </div>
+                  <div className="space-y-1.5">
+                    <h3 className="font-serif font-bold text-lg sm:text-xl text-stone-900 leading-snug">
+                      Fast Supply
+                    </h3>
+                    <p className="text-xs sm:text-[13.5px] lg:text-[14px] text-stone-600 font-normal leading-relaxed">
+                      Reliable nationwide logistics with dedicated trade customer service.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
             </div>
           </div>
 
-          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 text-left sm:grid-cols-3">
-            <div className="group rounded-3xl border border-black/5 bg-gray-50 p-8 shadow-xs transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-[1.015] hover:border-amber-500/40 hover:bg-white hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] hover:shadow-amber-500/5 cursor-pointer">
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-black text-lg font-bold text-white transition-all duration-300 group-hover:scale-105 group-hover:bg-amber-500 group-hover:text-stone-950 group-hover:shadow-md group-hover:shadow-amber-500/20">
-                1
-              </div>
-              <h3 className="mb-3 text-xl font-semibold text-black transition-colors duration-300 group-hover:text-stone-950">
-                Direct Distribution
-              </h3>
-              <p className="text-base font-medium text-black/60 leading-relaxed">
-                Competitive bulk wholesale pricing direct to retailers,
-                supermarkets, and catering.
-              </p>
-            </div>
-
-            <div className="group rounded-3xl border border-black/5 bg-gray-50 p-8 shadow-xs transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-[1.015] hover:border-amber-500/40 hover:bg-white hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] hover:shadow-amber-500/5 cursor-pointer">
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-black text-lg font-bold text-white transition-all duration-300 group-hover:scale-105 group-hover:bg-amber-500 group-hover:text-stone-950 group-hover:shadow-md group-hover:shadow-amber-500/20">
-                2
-              </div>
-              <h3 className="mb-3 text-xl font-semibold text-black transition-colors duration-300 group-hover:text-stone-950">
-                Premium Selection
-              </h3>
-              <p className="text-base font-medium text-black/60 leading-relaxed">
-                Fresh almonds, roasted nuts, crisps, confectionery, wafers, and
-                protein snacks.
-              </p>
-            </div>
-
-            <div className="group rounded-3xl border border-black/5 bg-gray-50 p-8 shadow-xs transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-[1.015] hover:border-amber-500/40 hover:bg-white hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] hover:shadow-amber-500/5 cursor-pointer">
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-black text-lg font-bold text-white transition-all duration-300 group-hover:scale-105 group-hover:bg-amber-500 group-hover:text-stone-950 group-hover:shadow-md group-hover:shadow-amber-500/20">
-                3
-              </div>
-              <h3 className="mb-3 text-xl font-semibold text-black transition-colors duration-300 group-hover:text-stone-950">
-                Fast Supply
-              </h3>
-              <p className="text-base font-medium text-black/60 leading-relaxed">
-                Reliable nationwide logistics with dedicated trade customer
-                service.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex flex-col items-center justify-center gap-4 pt-2 sm:flex-row sm:gap-6">
-            <Link
-              href="/products"
-              className="w-full rounded-full bg-black px-10 py-4 text-base font-semibold text-white shadow-xl transition-all duration-300 hover:scale-105 hover:bg-black/80 sm:w-auto"
-            >
-              View Catalog
-            </Link>
-
-            <Link
-              href="/inquiry"
-              className="w-full rounded-full border border-black/20 bg-transparent px-10 py-4 text-base font-semibold text-black transition-all hover:bg-black/5 sm:w-auto"
-            >
-              Request Quote
-            </Link>
-          </div>
         </div>
       </section>
     </div>
